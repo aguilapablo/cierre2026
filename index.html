@@ -1,349 +1,498 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Dictamen Técnico • Escisión LIBER</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        body { font-family: 'Inter', system_ui, sans-serif; background: #f8fafc; color: #111827; font-size: 0.95rem; }
-        .section-title { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
-        .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); }
-        .kpi-number { font-size: 1.85rem; font-weight: 700; line-height: 1; }
-        .bar-container { height: 38px; background: #f1f5f9; border-radius: 9999px; overflow: hidden; margin-bottom: 12px; }
-        .bar { height: 100%; display: flex; align-items: center; padding-left: 12px; color: white; font-weight: 600; font-size: 0.9rem; }
-        .checkpoint { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: #f8fafc; }
-        @media (max-width: 640px) {
-            body { font-size: 0.85rem; }
-            .section-title { font-size: 1.35rem; }
-            .card { border-radius: 16px; padding: 1rem !important; }
-            .kpi-number { font-size: 1.65rem !important; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Dictamen Técnico · Escisión LIBER</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0f1e35;
+      --navy2:#162844;
+      --navy3:#1e3554;
+      --accent:#00c389;
+      --accent2:#00a372;
+      --gold:#c9a84c;
+      --text:#0f1e35;
+      --text2:#4a5568;
+      --text3:#8896a7;
+      --surface:#ffffff;
+      --surface2:#f4f7fb;
+      --surface3:#eaf0f8;
+      --border:#dde4ef;
+      --border2:#c8d4e4;
+      --danger:#e53e3e;
+      --warn:#d97706;
+    }
+    @media(prefers-color-scheme:dark){
+      :root{
+        --text:#e8edf4;--text2:#9dafc5;--text3:#5d7290;
+        --surface:#0f1e35;--surface2:#162844;--surface3:#1e3554;
+        --border:#1e3554;--border2:#243e60;
+        --navy:#0a1625;--navy2:#0f1e35;--navy3:#162844;
+      }
+    }
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--surface2);color:var(--text);font-size:13px;line-height:1.5}
+    .shell{max-width:1080px;margin:0 auto;padding:24px 20px 48px}
+
+    /* ─── HEADER ─── */
+    .hdr{background:var(--navy);border-radius:16px;padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden}
+    .hdr::before{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:rgba(0,195,137,.08)}
+    .hdr::after{content:"";position:absolute;bottom:-80px;right:60px;width:160px;height:160px;border-radius:50%;background:rgba(201,168,76,.06)}
+    .hdr-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+    .hdr-logo{display:flex;align-items:center;gap:10px}
+    .hdr-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .hdr-brand{font-size:11px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase}
+    .hdr-badge{background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.3);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:500;color:var(--accent);letter-spacing:.08em}
+    .hdr-title{font-size:22px;font-weight:500;color:#ffffff;letter-spacing:-.02em;margin-bottom:6px}
+    .hdr-sub{font-size:12px;color:rgba(255,255,255,.45);font-weight:400}
+    .hdr-meta{display:flex;gap:24px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+    .hdr-meta-item{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.4)}
+    .hdr-meta-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+
+    /* ─── LABELS ─── */
+    .sec-label{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;padding-left:2px}
+    .sec-title{font-size:16px;font-weight:500;color:var(--text);margin-bottom:16px;letter-spacing:-.01em}
+
+    /* ─── KPI GRID ─── */
+    .kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
+    .kpi{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden}
+    .kpi::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0}
+    .kpi.gold::after{background:var(--gold)}
+    .kpi.navy-card{background:var(--navy);border-color:transparent}
+    .kpi.navy-card::after{background:var(--accent)}
+    .kpi-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+    .kpi.navy-card .kpi-label{color:rgba(255,255,255,.4)}
+    .kpi-value{font-size:20px;font-weight:500;color:var(--text);letter-spacing:-.02em;margin-bottom:4px}
+    .kpi.navy-card .kpi-value{color:#ffffff}
+    .kpi-sub{font-size:10px;color:var(--text3);font-weight:400}
+    .kpi.navy-card .kpi-sub{color:rgba(255,255,255,.35)}
+    .kpi-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:500;margin-top:6px}
+    .badge-green{background:rgba(0,195,137,.1);color:var(--accent2)}
+    .badge-gold{background:rgba(201,168,76,.1);color:var(--gold)}
+
+    /* ─── CARDS ─── */
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px}
+    .card-sm{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .mb8{margin-bottom:8px}
+    .mb16{margin-bottom:16px}
+    .mb20{margin-bottom:20px}
+    .row{display:flex;gap:16px}
+    .row > *{flex:1;min-width:0}
+
+    /* ─── TABLE ─── */
+    table{width:100%;border-collapse:separate;border-spacing:0}
+    thead tr th{background:var(--surface2);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);padding:10px 14px;border-bottom:1px solid var(--border)}
+    thead tr th:first-child{border-radius:8px 0 0 0}
+    thead tr th:last-child{border-radius:0 8px 0 0}
+    tbody tr td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text)}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:var(--surface3)}
+    td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Inter',monospace;font-size:12px;color:var(--text2)}
+    td.total{font-weight:500;color:var(--text)}
+    .row-accent{background:rgba(0,195,137,.04)!important}
+    .row-accent td{color:var(--accent2)!important;font-weight:500}
+
+    /* ─── INMUEBLES ─── */
+    .inmueble-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+    .inmueble-tag{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.18);border-radius:5px;padding:3px 8px}
+    .inmueble-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:10px}
+    .inmueble-list{list-style:none}
+    .inmueble-list li{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:11.5px}
+    .inmueble-list li:last-child{border-bottom:none}
+    .inmueble-list .prop{color:var(--text2)}
+    .inmueble-list .val{font-weight:500;color:var(--text);font-variant-numeric:tabular-nums}
+    .inmueble-footer{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .inmueble-total-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)}
+    .inmueble-total-val{font-size:15px;font-weight:500;color:var(--accent2)}
+
+    /* ─── CONTROLS ─── */
+    .ctrl-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px}
+    .ctrl-label{font-size:11px;font-weight:500;color:var(--text2);margin-bottom:6px}
+    .ctrl-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .ctrl-row input[type=range]{flex:1;accent-color:var(--accent);height:3px}
+    .ctrl-val{font-size:13px;font-weight:500;color:var(--text);min-width:110px;text-align:right;font-variant-numeric:tabular-nums}
+    .ctrl-input{width:100%;border:1px solid var(--border2);border-radius:7px;padding:5px 10px;text-align:center;font-size:12px;font-weight:500;color:var(--text);background:var(--surface2)}
+    .result-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-radius:8px;margin-bottom:6px;font-size:12px}
+    .result-row.highlight{background:rgba(0,195,137,.07);border:1px solid rgba(0,195,137,.18)}
+    .result-row.warn{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18)}
+    .result-label{color:var(--text2)}
+    .result-val{font-weight:500;color:var(--text);font-variant-numeric:tabular-nums}
+    .result-val.green{color:var(--accent2)}
+    .result-val.gold{color:var(--gold)}
+
+    /* ─── BARS ─── */
+    .bar-row{margin-bottom:14px}
+    .bar-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px}
+    .bar-name{color:var(--text2);font-weight:400}
+    .bar-pct{font-weight:500;color:var(--text)}
+    .bar-track{height:6px;background:var(--surface3);border-radius:3px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:3px;background:var(--accent);transition:width .5s ease}
+    .bar-fill.gold{background:var(--gold)}
+
+    /* ─── CHECKPOINTS ─── */
+    .cp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .cp{display:flex;align-items:flex-start;gap:10px;padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)}
+    .cp-icon{width:18px;height:18px;border-radius:50%;background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .cp-icon svg{width:10px;height:10px}
+    .cp-title{font-size:11.5px;font-weight:500;color:var(--text);margin-bottom:2px}
+    .cp-desc{font-size:10.5px;color:var(--text3);line-height:1.4}
+
+    /* ─── PMO ─── */
+    .pmo{background:var(--navy);border-radius:14px;padding:28px 30px;margin-top:20px}
+    .pmo-title{font-size:13px;font-weight:500;color:#ffffff;margin-bottom:4px;letter-spacing:-.01em}
+    .pmo-sub{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:20px}
+    .pmo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .pmo-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px}
+    .pmo-card-title{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:10px}
+    .pmo-check{display:flex;align-items:center;gap:7px;font-size:11px;color:rgba(255,255,255,.6);padding:4px 0}
+    .pmo-check-dot{width:14px;height:14px;border-radius:50%;background:rgba(0,195,137,.2);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .pmo-check-dot svg{width:8px;height:8px}
+    .pmo-stat{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.5);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .pmo-stat:last-child{border-bottom:none}
+    .pmo-stat-val{color:var(--accent);font-weight:500}
+    .pmo-status{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;color:var(--accent);background:rgba(0,195,137,.1);border:1px solid rgba(0,195,137,.2);border-radius:5px;padding:3px 8px;margin-top:8px}
+    .pmo-status-dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+    @media(max-width:640px){
+      .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid-3,.pmo-grid{grid-template-columns:1fr}
+      .cp-grid{grid-template-columns:1fr}
+      .row{flex-direction:column}
+      .hdr-meta{display:none}
+      .hdr{padding:20px}
+    }
+  </style>
 </head>
-<body class="min-h-screen pb-12">
+<body>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+<div class="shell">
 
-    <!-- SECCIONES 1 A 8 (SIN TOCAR NADA) -->
-    <!-- 1. Balance Especial -->
-    <div class="mb-12">
-        <h2 class="section-title">1. Balance Especial 30/11/2025 (RT 54)-NO APROBADO</h2>
-        <table class="w-full text-sm border border-gray-200 rounded-3xl overflow-hidden">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="p-4 text-left">Rubro</th>
-                    <th class="p-4 text-right">LIBER PREVIO</th>
-                    <th class="p-4 text-right">NAVONI</th>
-                    <th class="p-4 text-right">VIFRAN</th>
-                    <th class="p-4 text-right">PAMA</th>
-                    <th class="p-4 text-right">LIBER POST</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y">
-                <tr><td class="p-4 font-medium">Activo Corriente</td><td class="p-4 text-right">$10.230.669</td><td class="p-4 text-right">$3.059.455</td><td class="p-4 text-right">$4.079.273</td><td class="p-4 text-right">$3.070.590</td><td class="p-4 text-right">$21.884</td></tr>
-                <tr><td class="p-4 font-medium">Inversiones + Bienes Uso</td><td class="p-4 text-right">$574.611.138</td><td class="p-4 text-right">$46.275.618</td><td class="p-4 text-right">$276.553.519</td><td class="p-4 text-right">$249.648.110</td><td class="p-4 text-right">—</td></tr>
-                <tr class="bg-emerald-50 font-semibold"><td class="p-4">TOTAL ACTIVO</td><td class="p-4 text-right">$584.841.807</td><td class="p-4 text-right">$49.335.073</td><td class="p-4 text-right">$280.632.792</td><td class="p-4 text-right">$252.718.700</td><td class="p-4 text-right">$21.884</td></tr>
-                <tr><td class="p-4 font-medium">Pasivo Corriente</td><td class="p-4 text-right">$72.918.193</td><td class="p-4 text-right">$9.182.427</td><td class="p-4 text-right">$54.531.456</td><td class="p-4 text-right">$9.182.427</td><td class="p-4 text-right">$0</td></tr>
-                <tr class="bg-emerald-50 font-semibold"><td class="p-4">PATRIMONIO NETO</td><td class="p-4 text-right">$511.923.614</td><td class="p-4 text-right">$40.152.646</td><td class="p-4 text-right">$226.101.336</td><td class="p-4 text-right">$243.536.273</td><td class="p-4 text-right">$21.884</td></tr>
-            </tbody>
-        </table>
+  <!-- ═══ HEADER ═══ -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="hdr-logo">
+        <div class="hdr-dot"></div>
+        <span class="hdr-brand">Dictamen Técnico · LIBER SAIC</span>
+      </div>
+      <div class="hdr-badge">NO APROBADO</div>
     </div>
+    <div class="hdr-title">Escisión LIBER S.A.I.C.I.</div>
+    <div class="hdr-sub">Balance Especial RT 54 · Distribución 30 / 30 / 40 · Fecha de corte 30/11/2025</div>
+    <div class="hdr-meta">
+      <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Lic. en Adm. · T50 F17 CPCECABA</div>
+      <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Actualizado 17 de abril de 2026</div>
+      <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Marco normativo RT 54 / RT 17 / Art. 80 LIG</div>
+    </div>
+  </div>
 
-    <!-- 2. Inmuebles por Sociedad -->
-    <div class="mb-12">
-        <h2 class="section-title">2. Inmuebles por Sociedad</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card p-6"><div class="font-medium mb-4">NAVONI BR SAU (30%)</div><div class="text-sm space-y-1">Moreno 1969 (Garaje) → $29.947.946<br>Torre LIBER (MDQ) → $13.718.888<br>Luis María Campos 665 → $2.608.784</div><div class="mt-6 pt-4 border-t text-emerald-700 font-medium">$46.275.618</div></div>
-            <div class="card p-6"><div class="font-medium mb-4">DES. VIFRAN SRL (40%)</div><div class="text-sm space-y-1">Luis María Campos 665 (8A) → $700.736<br>Av. del Libertador 5691 → $9.309.356<br>Migueletes 1973 → $40.520.963</div><div class="mt-6 pt-4 border-t text-emerald-700 font-medium">$50.531.056</div></div>
-            <div class="card p-6"><div class="font-medium mb-4">PAMA INVER. SRL (30%)</div><div class="text-sm space-y-1">Luis María Campos 665 → $5.132.032<br>Padre Dutto MDQ → $8.368.470<br>Sarmiento 944 10A → $9.153.095<br>J.M. Gutiérrez 2782 → $972.039</div><div class="mt-6 pt-4 border-t text-emerald-700 font-medium">$23.625.636</div></div>
+  <!-- ═══ KPIs ═══ -->
+  <div class="sec-label mb8">Indicadores clave</div>
+  <div class="kpi-grid mb20">
+    <div class="kpi navy-card">
+      <div class="kpi-label">Patrimonio Neto Total</div>
+      <div class="kpi-value">$143.082.292</div>
+      <div class="kpi-sub">Distribución 30/30/40</div>
+      <div class="kpi-badge badge-green">&#10003; Verificado</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Dación en Pago Malabia</div>
+      <div class="kpi-value">$452.044.937</div>
+      <div class="kpi-sub">50% PAMA · 50% VIFRAN</div>
+      <div class="kpi-badge badge-green">&#10003; RT 54</div>
+    </div>
+    <div class="kpi gold">
+      <div class="kpi-label">Pivote Contable RT 17</div>
+      <div class="kpi-value">$12.440.664</div>
+      <div class="kpi-sub">Activación PAMA exclusiva</div>
+      <div class="kpi-badge badge-gold">Solo PAMA</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">LIBER Post-Escisión</div>
+      <div class="kpi-value">$0</div>
+      <div class="kpi-sub">Todo distribuido</div>
+      <div class="kpi-badge badge-green">&#10003; Completo</div>
+    </div>
+  </div>
+
+  <!-- ═══ BALANCE ESPECIAL ═══ -->
+  <div class="sec-label mb8">Sección 1 · Balance Especial 30/11/2025 (RT 54)</div>
+  <div class="card mb20">
+    <table>
+      <thead><tr>
+        <th>Rubro</th>
+        <th style="text-align:right">LIBER Previo</th>
+        <th style="text-align:right">NAVONI</th>
+        <th style="text-align:right">VIFRAN</th>
+        <th style="text-align:right">PAMA</th>
+        <th style="text-align:right">LIBER Post</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Activo Corriente</td><td class="num">$10.230.669</td><td class="num">$3.059.455</td><td class="num">$4.079.273</td><td class="num">$3.070.590</td><td class="num">$21.884</td></tr>
+        <tr><td>Inversiones + Bienes de Uso</td><td class="num">$574.611.138</td><td class="num">$46.275.618</td><td class="num">$276.553.519</td><td class="num">$249.648.110</td><td class="num">—</td></tr>
+        <tr class="row-accent"><td class="total">Total Activo</td><td class="num total">$584.841.807</td><td class="num total">$49.335.073</td><td class="num total">$280.632.792</td><td class="num total">$252.718.700</td><td class="num total">$21.884</td></tr>
+        <tr><td>Pasivo Corriente</td><td class="num">$72.918.193</td><td class="num">$9.182.427</td><td class="num">$54.531.456</td><td class="num">$9.182.427</td><td class="num">$0</td></tr>
+        <tr class="row-accent"><td class="total">Patrimonio Neto</td><td class="num total">$511.923.614</td><td class="num total">$40.152.646</td><td class="num total">$226.101.336</td><td class="num total">$243.536.273</td><td class="num total">$21.884</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ INMUEBLES ═══ -->
+  <div class="sec-label mb8">Sección 2 · Inmuebles por Sociedad</div>
+  <div class="grid-3 mb20">
+    <div class="card-sm">
+      <div class="inmueble-hdr"><div class="inmueble-tag">30%</div></div>
+      <div class="inmueble-name">NAVONI BR SAU</div>
+      <ul class="inmueble-list">
+        <li><span class="prop">Moreno 1969 (Garaje)</span><span class="val">$29.947.946</span></li>
+        <li><span class="prop">Torre LIBER (MDQ)</span><span class="val">$13.718.888</span></li>
+        <li><span class="prop">Luis M. Campos 665</span><span class="val">$2.608.784</span></li>
+      </ul>
+      <div class="inmueble-footer">
+        <span class="inmueble-total-label">Total</span>
+        <span class="inmueble-total-val">$46.275.618</span>
+      </div>
+    </div>
+    <div class="card-sm">
+      <div class="inmueble-hdr"><div class="inmueble-tag">40%</div></div>
+      <div class="inmueble-name">DES. VIFRAN SRL</div>
+      <ul class="inmueble-list">
+        <li><span class="prop">Luis M. Campos 665 (8A)</span><span class="val">$700.736</span></li>
+        <li><span class="prop">Av. del Libertador 5691</span><span class="val">$9.309.356</span></li>
+        <li><span class="prop">Migueletes 1973</span><span class="val">$40.520.963</span></li>
+      </ul>
+      <div class="inmueble-footer">
+        <span class="inmueble-total-label">Total</span>
+        <span class="inmueble-total-val">$50.531.056</span>
+      </div>
+    </div>
+    <div class="card-sm">
+      <div class="inmueble-hdr"><div class="inmueble-tag">30%</div></div>
+      <div class="inmueble-name">PAMA INVER. SRL</div>
+      <ul class="inmueble-list">
+        <li><span class="prop">Luis M. Campos 665</span><span class="val">$5.132.032</span></li>
+        <li><span class="prop">Padre Dutto MDQ</span><span class="val">$8.368.470</span></li>
+        <li><span class="prop">Sarmiento 944 10A</span><span class="val">$9.153.095</span></li>
+        <li><span class="prop">J.M. Gutiérrez 2782</span><span class="val">$972.039</span></li>
+      </ul>
+      <div class="inmueble-footer">
+        <span class="inmueble-total-label">Total</span>
+        <span class="inmueble-total-val">$23.625.636</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CRÉDITO MALABIA ═══ -->
+  <div class="sec-label mb8">Sección 3 · Crédito Solares Malabia · Dación en Pago + Deuda Nueva Pablo</div>
+  <div class="ctrl-section mb20">
+    <div class="row">
+      <div>
+        <div class="ctrl-label">Valor de Mercado Malabia</div>
+        <div class="ctrl-row">
+          <input type="range" id="mvSlider" min="200000000" max="600000000" value="452044937" step="1000000" oninput="calcular()">
+          <span class="ctrl-val" id="mvDisplay">$452.044.937</span>
         </div>
-    </div>
-
-    <!-- 3. Crédito Solares Malabia -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">3. Crédito Solares Malabia • Dación en Pago + Deuda Nueva Pablo</h2>
-        <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
-            <div class="xl:col-span-3">
-                <div class="text-sm font-medium mb-6">Distribución 50/50 del Crédito</div>
-                <div class="flex flex-col gap-6">
-                    <div class="border border-gray-200 rounded-3xl p-6 text-center">
-                        <div class="text-emerald-700 text-3xl font-semibold">50 %</div>
-                        <div class="text-xs text-gray-500 mt-1">PAMA INVER. SRL</div>
-                        <div id="pamaMalabiaVal" class="font-mono text-2xl mt-3">$226.022.474</div>
-                    </div>
-                    <div class="border border-gray-200 rounded-3xl p-6 text-center">
-                        <div class="text-emerald-700 text-3xl font-semibold">50 %</div>
-                        <div class="text-xs text-gray-500 mt-1">DES. VIFRAN SRL</div>
-                        <div id="vifranMalabiaVal" class="font-mono text-2xl mt-3">$226.022.463</div>
-                    </div>
-                </div>
-            </div>
-            <div class="xl:col-span-4">
-                <label class="block text-sm mb-3">Valor de Mercado Malabia</label>
-                <input id="mvMalabia" type="range" min="200000000" max="400000000" value="452044937" step="1000000" class="w-full accent-emerald-600">
-                <div class="flex justify-between text-xs mt-2"><span>$200 M</span><span id="mvVal" class="font-mono">$452.044.937</span><span>$400 M</span></div>
-                <div class="mt-8 p-6 bg-gray-50 rounded-3xl">
-                    <div class="flex justify-between text-sm mb-3">
-                        <span>Valor histórico ajustado (RT 54)</span>
-                        <span class="font-mono">$452.044.937</span>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                        <span id="resultadoLabel" class="font-medium">Resultado</span>
-                        <span id="resultadoValor" class="font-mono font-semibold"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="xl:col-span-5">
-                <div class="grid grid-cols-2 gap-8">
-                    <div>
-                        <div class="text-xs font-medium mb-3">Nueva Deuda (Pablo)</div>
-                        <label class="block text-sm mb-1">Tasa anual % (BNA)</label>
-                        <input id="tasaPablo" type="number" value="40" step="0.1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                        <label class="block text-sm mb-1 mt-4">Períodos de capitalización (trimestres)</label>
-                        <input id="periodosPablo" type="number" value="3" min="1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                    </div>
-                    <div>
-                        <div class="text-xs font-medium mb-3">Deuda Consolidada (Luis+Jose)</div>
-                        <label class="block text-sm mb-1">Tasa anual % (BNA)</label>
-                        <input id="tasaLuis" type="number" value="40" step="0.1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                        <label class="block text-sm mb-1 mt-4">Períodos de capitalización (trimestres)</label>
-                        <input id="periodosLuis" type="number" value="3" min="1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                    </div>
-                </div>
-                <div class="mt-8 space-y-6">
-                    <div id="impactoPabloBox" class="p-8 bg-emerald-50 rounded-3xl text-sm"></div>
-                    <div id="impactoLuisBox" class="p-8 bg-emerald-50 rounded-3xl text-sm"></div>
-                </div>
-            </div>
+        <div class="grid-2" style="gap:12px;margin-bottom:16px">
+          <div>
+            <div class="ctrl-label">Tasa anual Pablo % (BNA)</div>
+            <input class="ctrl-input" type="number" id="tasaPablo" value="40" step="0.1" oninput="calcular()">
+          </div>
+          <div>
+            <div class="ctrl-label">Períodos (trimestres) Pablo</div>
+            <input class="ctrl-input" type="number" id="perPablo" value="3" min="1" oninput="calcular()">
+          </div>
+          <div>
+            <div class="ctrl-label">Tasa anual Luis+Jose % (BNA)</div>
+            <input class="ctrl-input" type="number" id="tasaLuis" value="40" step="0.1" oninput="calcular()">
+          </div>
+          <div>
+            <div class="ctrl-label">Períodos (trimestres) Luis+Jose</div>
+            <input class="ctrl-input" type="number" id="perLuis" value="3" min="1" oninput="calcular()">
+          </div>
         </div>
-    </div>
-
-    <!-- 4. Patrimonio Neto Check -->
-    <div class="mb-12">
-        <h2 class="section-title">4. Patrimonio Neto • Check 30/30/40 (NBR = PAMA)</h2>
-        <div class="grid grid-cols-4 gap-6">
-            <div class="card p-6"><div class="text-sm text-gray-500">NAVONI BR SAU</div><div class="kpi-number">$46.275.618</div><div class="text-sm">30.00 % ✓</div></div>
-            <div class="card p-6"><div class="text-sm text-gray-500">DES. VIFRAN SRL</div><div class="kpi-number">$50.531.056</div><div class="text-sm">40.00 % ✓</div></div>
-            <div class="card p-6"><div class="text-sm text-gray-500">PAMA INVER. SRL</div><div class="kpi-number">$46.275.618</div><div class="text-sm">30.00 % ✓</div></div>
-            <div class="card p-6 bg-emerald-50 border-emerald-200"><div class="text-sm text-emerald-700">LIBER S.A.I.C.I. POSTERIOR</div><div class="kpi-number text-emerald-700">$0</div><div class="text-sm text-emerald-700">✅ TODO DISTRIBUIDO</div></div>
+      </div>
+      <div>
+        <div class="ctrl-label" style="margin-bottom:10px">Distribución del Crédito 50 / 50</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+          <div style="text-align:center;padding:16px 10px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px">PAMA INVER.</div>
+            <div style="font-size:15px;font-weight:500;color:var(--accent2)" id="pamaPart">$226.022.474</div>
+          </div>
+          <div style="text-align:center;padding:16px 10px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px">DES. VIFRAN</div>
+            <div style="font-size:15px;font-weight:500;color:var(--accent2)" id="vifranPart">$226.022.463</div>
+          </div>
         </div>
-    </div>
-
-    <!-- 5. Detalle de Dación en Pago -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">5. Detalle de Dación en Pago (Crédito Malabia)</h2>
-        <div class="grid grid-cols-2 gap-6 text-sm">
-            <div class="bg-gray-50 p-4 rounded-2xl">
-                <div class="font-medium">Valor de Mercado Malabia</div>
-                <div id="dacionMv" class="font-mono text-2xl">$452.044.937</div>
-            </div>
-            <div class="bg-gray-50 p-4 rounded-2xl">
-                <div class="font-medium">Deuda Luis + Jose Actualizada</div>
-                <div id="dacionLuis" class="font-mono text-2xl">$72.918.193</div>
-            </div>
-            <div class="col-span-2 bg-emerald-50 p-4 rounded-2xl">
-                <div class="flex justify-between"><span class="font-medium">Nueva Deuda Pablo (lo que falta para completar Malabia)</span><span id="dacionPabloFinal" class="font-mono text-xl">$379.126.744</span></div>
-            </div>
+        <div class="result-row highlight">
+          <span class="result-label">Deuda consolidada Luis + Jose</span>
+          <span class="result-val green" id="rLuis">$72.918.193</span>
         </div>
-    </div>
-
-    <!-- 6. Verificación de Cálculos de Deuda -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">6. Verificación de Cálculos de Deuda</h2>
-        <div class="text-sm space-y-4">
-            <div class="flex justify-between"><span>Deuda Consolidada Luis + Jose (actualizada con tasa y períodos)</span><span id="verifLuis" class="font-mono">$72.918.193</span></div>
-            <div class="flex justify-between"><span>Nueva Deuda Pablo (diferencia para completar Malabia)</span><span id="verifPablo" class="font-mono">$379.126.744</span></div>
-            <div class="flex justify-between text-emerald-700 font-medium"><span>Total cubierto por Dación + Deuda Pablo</span><span id="verifTotal" class="font-mono">$452.044.937</span></div>
+        <div class="result-row warn">
+          <span class="result-label">Nueva deuda Pablo</span>
+          <span class="result-val gold" id="rPablo">$379.126.744</span>
         </div>
-    </div>
-
-    <!-- 7. Gráfico -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">7. Gráfico de Distribución 30/30/40 + Ajuste</h2>
-        <div class="space-y-8">
-            <div><div class="flex justify-between text-sm mb-2"><span class="font-medium">NAVONI BR SAU <span class="text-emerald-600">(30%)</span></span><span class="font-mono">$46.275.618</span></div><div class="bar-container"><div class="bar bg-emerald-600" style="width:30%">30%</div></div></div>
-            <div><div class="flex justify-between text-sm mb-2"><span class="font-medium">DES. VIFRAN SRL <span class="text-emerald-600">(40%)</span></span><span class="font-mono">$50.531.056</span></div><div class="bar-container"><div class="bar bg-emerald-600" style="width:40%">40%</div></div></div>
-            <div><div class="flex justify-between text-sm mb-2"><span class="font-medium">PAMA INVER. SRL <span class="text-emerald-600">(30%)</span></span><span class="font-mono">$46.275.618</span></div><div class="bar-container"><div class="bar bg-emerald-600" style="width:30%">30%</div></div></div>
-            <div class="pt-4 border-t"><div class="flex justify-between text-sm mb-2"><span class="font-medium text-amber-700">Ajuste (probable)</span><span class="font-mono text-amber-600">$12.440.664</span></div><div class="bar-container"><div class="bar bg-amber-600" style="width:25%">Ajuste</div></div></div>
+        <div class="result-row highlight">
+          <span class="result-label">Total cubierto (dación + deuda Pablo)</span>
+          <span class="result-val green" id="rTotal">$452.044.937</span>
         </div>
-    </div>
-
-    <!-- 8. Nuevos Balances Post-Fusión -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">8. Nuevos Balances Post-Fusión (Patrimonio Neto Final)</h2>
-        <table class="w-full text-sm border border-gray-200 rounded-3xl overflow-hidden">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="p-4 text-left">Sociedad</th>
-                    <th class="p-4 text-right">% Participación</th>
-                    <th class="p-4 text-right">Patrimonio Neto Final</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y">
-                <tr><td class="p-4 font-medium">NAVONI BR SAU</td><td class="p-4 text-right">30%</td><td class="p-4 text-right font-semibold">$46.275.618</td></tr>
-                <tr><td class="p-4 font-medium">DES. VIFRAN SRL</td><td class="p-4 text-right">40%</td><td class="p-4 text-right font-semibold">$50.531.056</td></tr>
-                <tr><td class="p-4 font-medium">PAMA INVER. SRL</td><td class="p-4 text-right">30%</td><td class="p-4 text-right font-semibold">$46.275.618</td></tr>
-                <tr class="bg-emerald-50"><td class="p-4 font-medium text-emerald-700">LIBER S.A.I.C.I. (POSTERIOR)</td><td class="p-4 text-right">—</td><td class="p-4 text-right font-semibold text-emerald-700">$0</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- 9. UNIFICADA (SIN TOCAR) -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">9. Dictamen del Auditor y Análisis Normativo con Checkpoints (RT 54 / RT 17 / Art. 80)</h2>
-        <div class="prose text-sm space-y-8">
-            <div><strong>Pivote Contable (Resolución Técnica 17)</strong><br>Activación de gastos solo en PAMA para nivelar exactamente 30/30/40 sin tocar los inmuebles físicos.</div>
-            
-            <div><strong>Justificación Artículo 80 de la Ley de Impuesto a las Ganancias</strong><br>
-                ✓ Continuación de la actividad en marcha<br>
-                ✓ Mantenimiento de más del 80% de participación<br>
-                ✓ Traslado intacto de atributos fiscales<br>
-                ✓ Dación en pago reorganizativa (sin impuesto)
-            </div>
-
-            <div>
-                <strong>Marco Normativo Unificado (RT 54)</strong><br>
-                A partir de la entrada en vigencia de la RT 54, el marco normativo contable se conforma por:
-                <ul class="list-disc pl-5 mt-4 space-y-2">
-                    <li><strong>Resolución Técnica FACPCE Nº 54</strong>: Norma Unificada Argentina de Contabilidad.</li>
-                    <li><strong>Resolución Técnica FACPCE Nº 36</strong>: Balance Social.</li>
-                    <li><strong>Resolución Técnica FACPCE Nº 26</strong>: Adopción NIIF e NIIF para Pymes.</li>
-                    <li><strong>Resolución Técnica FACPCE Nº 16</strong>: Marco Conceptual.</li>
-                    <li><a href="https://www.consejo.org.ar/storage/attachments/GUIA%20DE%20PREGUNTAS%20Y%20RESPUESTAS.pdf-Er92AK1Btg.pdf" target="_blank" class="text-emerald-600 underline">Guía de Preguntas y Respuestas – FACPCE (PDF)</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <strong>Principales Casos de Activación de Gastos (RT 54) – CHECKPOINTS DEL PROYECTO</strong>
-                <div class="mt-6 space-y-4">
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Costos Financieros (Intereses)</strong><br>Se permite capitalizar intereses de activos aptos (construcción de bienes de uso). <span class="text-emerald-600 font-medium">Cumple – Se aplica en el pivote contable.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Investigación y Desarrollo (I+D)</strong><br>Investigación → gasto del período.<br>Desarrollo → activable solo con viabilidad técnica y económica demostrada. <span class="text-emerald-600 font-medium">Cumple – No aplica en este proyecto.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Mantenimiento y Reparaciones</strong><br>Ordinario → gasto.<br>Extraordinario/Grandes revisiones → activable si aumenta vida útil. <span class="text-emerald-600 font-medium">Cumple – Se evalúa por RT 17.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Activos Intangibles</strong><br>Gastos de adquisición/producción activables si cumplen control y beneficios futuros. <span class="text-emerald-600 font-medium">Cumple – No aplica.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Requisitos Contables Vigentes</strong><br>1. Identificabilidad ✓<br>2. Beneficio Futuro ✓<br>3. Valor Recuperable ✓ <span class="text-emerald-600 font-medium">Todos cumplidos en el ajuste RT 17.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Consideraciones Clave RT 54</strong><br>Consistencia en la activación y valoración a costo original o corriente. <span class="text-emerald-600 font-medium">Cumple – Aplicado consistentemente.</span></div>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 mt-6">Conclusión: Todos los checkpoints de activación de gastos (RT 54) y requisitos contables están cumplidos. El proyecto es técnicamente correcto y fiscalmente neutro.</p>
-            </div>
-
-            <div class="text-xs text-emerald-700 mt-10">Lic en Admin • T50 F17 CPCECABA • Fecha: 17 de abril de 2026</div>
+        <div id="rDif" class="result-row" style="display:none">
+          <span class="result-label" id="rDifLabel"></span>
+          <span class="result-val" id="rDifVal"></span>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- PMO DASHBOARD • ÚNICA SECCIÓN MODIFICADA -->
-    <div class="mb-12 card p-6 sm:p-10 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl">
-        <h2 class="section-title text-white mb-8">PMO Dashboard • Escisión LIBER • 31/07/2026</h2>
-        
-        <!-- KPIs -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">Patrimonio Neto Final</div><div class="kpi-number text-white">$143.082.292</div><div class="text-xs text-emerald-400">30/30/40 ✓</div></div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">Dación en Pago Malabia</div><div class="kpi-number text-white">$452.044.937</div><div class="text-xs text-emerald-400">50/50 ✓</div></div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">PIVOTE</div><div class="kpi-number text-white">$12.440.664</div><div class="text-xs text-emerald-400">RT 17 ✓ Solo PAMA</div></div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">Liber Posterior</div><div class="kpi-number text-white">$0</div><div class="text-xs text-emerald-400">TODO DISTRIBUIDO ✓</div></div>
-        </div>
-
-        <!-- Compliance Checkpoints -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6">
-                <div class="font-medium mb-4">Art. 80 LIG</div>
-                <div class="space-y-3 text-sm"><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Continuidad actividad</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>&gt;80% participación</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Traslado atributos fiscales</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Dación reorganizativa</div></div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6">
-                <div class="font-medium mb-4">RT 54 – Activación Gastos</div>
-                <div class="space-y-3 text-sm"><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Costos financieros</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>I+D viable</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Grandes reparaciones</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Intangibles controlados</div></div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6">
-                <div class="font-medium mb-4">Estado Final Proyecto</div>
-                <div class="flex items-center justify-between text-sm"><span>Liber Posterior</span><span class="font-mono text-emerald-400">$0</span></div>
-                <div class="flex items-center justify-between text-sm mt-4"><span>Check Final 30/30/40</span><span class="text-emerald-400 font-semibold">COMPLETO</span></div>
-                <div class="text-[10px] text-emerald-300 mt-8">Dashboard actualizado en tiempo real • 17 abril 2026</div>
-            </div>
-        </div>
+  <!-- ═══ DISTRIBUCIÓN ═══ -->
+  <div class="sec-label mb8">Sección 4 · Distribución Patrimonial 30 / 30 / 40</div>
+  <div class="card mb20">
+    <div class="bar-row">
+      <div class="bar-meta"><span class="bar-name">NAVONI BR SAU</span><span class="bar-pct">30% · $46.275.618</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
     </div>
+    <div class="bar-row">
+      <div class="bar-meta"><span class="bar-name">DES. VIFRAN SRL</span><span class="bar-pct">40% · $50.531.056</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-meta"><span class="bar-name">PAMA INVER. SRL</span><span class="bar-pct">30% · $46.275.618</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+    </div>
+    <div class="bar-row" style="margin-bottom:0">
+      <div class="bar-meta"><span class="bar-name" style="color:var(--gold)">Ajuste probable (RT 17)</span><span class="bar-pct" style="color:var(--gold)">$12.440.664</span></div>
+      <div class="bar-track"><div class="bar-fill gold" style="width:8.7%"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ BALANCES POST ═══ -->
+  <div class="sec-label mb8">Sección 5 · Patrimonio Neto Final Post-Escisión</div>
+  <div class="card mb20">
+    <table>
+      <thead><tr>
+        <th>Sociedad</th>
+        <th style="text-align:right">Participación</th>
+        <th style="text-align:right">Patrimonio Neto Final</th>
+        <th style="text-align:right">Estado</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>NAVONI BR SAU</td><td class="num">30%</td><td class="num total">$46.275.618</td><td style="text-align:right"><span class="kpi-badge badge-green" style="margin:0">&#10003; OK</span></td></tr>
+        <tr><td>DES. VIFRAN SRL</td><td class="num">40%</td><td class="num total">$50.531.056</td><td style="text-align:right"><span class="kpi-badge badge-green" style="margin:0">&#10003; OK</span></td></tr>
+        <tr><td>PAMA INVER. SRL</td><td class="num">30%</td><td class="num total">$46.275.618</td><td style="text-align:right"><span class="kpi-badge badge-green" style="margin:0">&#10003; OK</span></td></tr>
+        <tr class="row-accent"><td>LIBER S.A.I.C.I. (Posterior)</td><td class="num">—</td><td class="num total">$0</td><td style="text-align:right"><span class="kpi-badge badge-green" style="margin:0">&#10003; Distribuido</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ CHECKPOINTS ═══ -->
+  <div class="sec-label mb8">Sección 6 · Dictamen Auditor · Análisis Normativo RT 54 / RT 17 / Art. 80 LIG</div>
+  <div class="card mb16">
+    <div class="sec-title mb16">Checkpoints de cumplimiento</div>
+    <div class="cp-grid">
+      <div class="cp">
+        <div class="cp-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#00c389" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Art. 80 LIG · Continuidad de actividad</div><div class="cp-desc">Operación en marcha verificada. Más del 80% de participación conservado.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#00c389" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Traslado intacto de atributos fiscales</div><div class="cp-desc">Quebranto impositivo, amortizaciones y bases imponibles trasladadas sin impacto.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#00c389" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">RT 54 · Costos financieros capitalizables</div><div class="cp-desc">Intereses de activos aptos en construcción. Pivote aplicado solo en PAMA.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#00c389" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">RT 17 · Grandes reparaciones activables</div><div class="cp-desc">Mantenimiento extraordinario que extiende vida útil. Identificabilidad y recuperabilidad cumplidas.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#00c389" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Dación en pago reorganizativa</div><div class="cp-desc">Sin impuesto. Crédito Malabia asignado 50/50 PAMA / VIFRAN conforme acuerdo.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#00c389" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Consistencia de valuación RT 54</div><div class="cp-desc">Costo original ajustado aplicado de forma uniforme en todas las sociedades escindidas.</div></div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:10px 14px;background:rgba(0,195,137,.05);border:1px solid rgba(0,195,137,.15);border-radius:8px;font-size:11px;color:var(--text2)">
+      Conclusión: todos los checkpoints normativos están cumplidos. El proyecto es técnicamente correcto y fiscalmente neutro conforme al Art. 80 de la Ley de Impuesto a las Ganancias.
+    </div>
+  </div>
+
+  <!-- ═══ PMO DASHBOARD ═══ -->
+  <div class="pmo">
+    <div class="pmo-title">PMO Dashboard · Escisión LIBER · Vencimiento 31/07/2026</div>
+    <div class="pmo-sub">Monitoreo ejecutivo en tiempo real</div>
+    <div class="pmo-grid">
+      <div class="pmo-card">
+        <div class="pmo-card-title">Art. 80 LIG</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Continuidad actividad</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>+80% participación</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Atributos fiscales</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dación reorganizativa</div>
+      </div>
+      <div class="pmo-card">
+        <div class="pmo-card-title">RT 54 · Activación de gastos</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Costos financieros</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Grandes reparaciones</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Intangibles controlados</div>
+        <div class="pmo-check"><div class="pmo-check-dot"><svg viewBox="0 0 8 8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00c389" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Valuación consistente</div>
+      </div>
+      <div class="pmo-card">
+        <div class="pmo-card-title">Estado final del proyecto</div>
+        <div class="pmo-stat"><span>LIBER Posterior</span><span class="pmo-stat-val">$0</span></div>
+        <div class="pmo-stat"><span>Check 30/30/40</span><span class="pmo-stat-val">COMPLETO</span></div>
+        <div class="pmo-stat"><span>Dación Malabia</span><span class="pmo-stat-val">50 / 50</span></div>
+        <div class="pmo-stat"><span>Pivote RT 17</span><span class="pmo-stat-val">$12.440.664</span></div>
+        <div><div class="pmo-status"><div class="pmo-status-dot"></div>Proyecto verificado · 17 abr 2026</div></div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
 <script>
-    const formatear = (num) => '$' + Math.round(num).toLocaleString('es-AR');
-    const valorHistorico = 452044937;
+  const fmt = n => '$' + Math.round(n).toLocaleString('es-AR');
+  const VH = 452044937;
+  const PASIVO = 72918193;
 
-    function calcularDeuda(principal, tasa, periodos) {
-        if (!periodos || periodos < 1) periodos = 3;
-        const tasaTrimestral = tasa / 100 / 4;
-        return principal * Math.pow(1 + tasaTrimestral, periodos);
+  function calcular() {
+    const mv    = parseFloat(document.getElementById('mvSlider').value)  || VH;
+    const tL    = parseFloat(document.getElementById('tasaLuis').value)  || 40;
+    const perL  = parseInt(document.getElementById('perLuis').value)     || 3;
+
+    const tqL      = tL / 100 / 4;
+    const luisDeuda = PASIVO * Math.pow(1 + tqL, perL);
+    const pabloDeuda = Math.max(0, mv - luisDeuda);
+    const total     = luisDeuda + pabloDeuda;
+
+    document.getElementById('mvDisplay').textContent  = fmt(mv);
+    document.getElementById('pamaPart').textContent   = fmt(mv * 0.5);
+    document.getElementById('vifranPart').textContent = fmt(mv * 0.5);
+    document.getElementById('rLuis').textContent      = fmt(luisDeuda);
+    document.getElementById('rPablo').textContent     = fmt(pabloDeuda);
+    document.getElementById('rTotal').textContent     = fmt(total);
+
+    const dif = mv - VH;
+    const rDifRow = document.getElementById('rDif');
+    if (Math.abs(dif) > 500) {
+      rDifRow.style.display = 'flex';
+      document.getElementById('rDifLabel').textContent = dif > 0 ? 'Ganancia por sobrevaloración' : 'Pérdida por achique del crédito';
+      const v = document.getElementById('rDifVal');
+      v.textContent = fmt(dif);
+      v.style.color = dif > 0 ? 'var(--accent2)' : 'var(--danger)';
+      rDifRow.style.background = dif > 0 ? 'rgba(0,195,137,.07)' : 'rgba(229,62,62,.06)';
+      rDifRow.style.border     = dif > 0 ? '1px solid rgba(0,195,137,.18)' : '1px solid rgba(229,62,62,.2)';
+    } else {
+      rDifRow.style.display = 'none';
     }
+  }
 
-    function actualizarTodo() {
-        const mv = parseFloat(document.getElementById('mvMalabia').value) || valorHistorico;
-        const diferencia = mv - valorHistorico;
-
-        document.getElementById('pamaMalabiaVal').textContent = formatear(mv * 0.5);
-        document.getElementById('vifranMalabiaVal').textContent = formatear(mv * 0.5);
-        document.getElementById('mvVal').textContent = formatear(mv);
-
-        const label = document.getElementById('resultadoLabel');
-        const valorEl = document.getElementById('resultadoValor');
-        if (diferencia > 0) {
-            label.textContent = 'Ganancia (sobrevaloración)';
-            valorEl.className = 'font-mono font-semibold text-emerald-600';
-        } else if (diferencia < 0) {
-            label.textContent = 'Pérdida (achique del crédito)';
-            valorEl.className = 'font-mono font-semibold text-red-600';
-        } else {
-            label.textContent = 'Sin variación';
-            valorEl.className = 'font-mono font-semibold';
-        }
-        valorEl.textContent = formatear(diferencia);
-
-        const tasaPablo = parseFloat(document.getElementById('tasaPablo').value) || 40;
-        const periodosPablo = parseFloat(document.getElementById('periodosPablo').value) || 3;
-        const tasaLuis = parseFloat(document.getElementById('tasaLuis').value) || 40;
-        const periodosLuis = parseFloat(document.getElementById('periodosLuis').value) || 3;
-
-        const pasivoTotal = 72918193;
-        const luisDeuda = calcularDeuda(pasivoTotal, tasaLuis, periodosLuis);
-        const pabloDeuda = Math.max(0, mv - luisDeuda);
-
-        document.getElementById('impactoPabloBox').innerHTML = `<div class="flex justify-between text-sm"><span>Nueva Deuda (Pablo)</span><span class="font-mono">${formatear(pabloDeuda)}</span></div>`;
-        document.getElementById('impactoLuisBox').innerHTML = `<div class="flex justify-between text-sm"><span>Deuda Consolidada (Luis+Jose)</span><span class="font-mono">${formatear(luisDeuda)}</span></div>`;
-
-        if (document.getElementById('dacionMv')) document.getElementById('dacionMv').textContent = formatear(mv);
-        if (document.getElementById('dacionLuis')) document.getElementById('dacionLuis').textContent = formatear(luisDeuda);
-        if (document.getElementById('dacionPabloFinal')) document.getElementById('dacionPabloFinal').textContent = formatear(pabloDeuda);
-        if (document.getElementById('verifLuis')) document.getElementById('verifLuis').textContent = formatear(luisDeuda);
-        if (document.getElementById('verifPablo')) document.getElementById('verifPablo').textContent = formatear(pabloDeuda);
-        if (document.getElementById('verifTotal')) document.getElementById('verifTotal').textContent = formatear(mv);
-    }
-
-    window.addEventListener('load', () => {
-        actualizarTodo();
-        document.getElementById('mvMalabia').addEventListener('input', actualizarTodo);
-        document.getElementById('tasaPablo').addEventListener('input', actualizarTodo);
-        document.getElementById('periodosPablo').addEventListener('input', actualizarTodo);
-        document.getElementById('tasaLuis').addEventListener('input', actualizarTodo);
-        document.getElementById('periodosLuis').addEventListener('input', actualizarTodo);
-    });
+  window.addEventListener('load', calcular);
 </script>
 </body>
 </html>
