@@ -195,15 +195,11 @@
         </table>
     </div>
 
-    <!-- GRÁFICO (versión estable para iOS) -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">Gráfico de Distribución 30/30/40 + Ajuste RT 17</h2>
-        <div class="relative" style="height: 240px;">
-            <canvas id="proporcionalidadChart"></canvas>
+    
         </div>
     </div>
 
-    <!-- 7. DICTAMEN -->
+    <!--  DICTAMEN -->
     <div class="card p-6 sm:p-10">
         <h2 class="section-title">7. Dictamen del Auditor</h2>
         <div class="prose text-sm space-y-6">
@@ -265,16 +261,15 @@
         document.getElementById('impactoPabloBox').innerHTML = `<div class="flex justify-between text-sm"><span>Nueva Deuda (Pablo)</span><span class="font-mono">${formatear(pabloDeuda)}</span></div>`;
         document.getElementById('impactoLuisBox').innerHTML = `<div class="flex justify-between text-sm"><span>Deuda Consolidada (Luis+Jose)</span><span class="font-mono">${formatear(luisDeuda)}</span></div>`;
 
-        // ACTUALIZACIÓN ESTABLE DEL GRÁFICO (sin destruir y recrear)
+        // ACTUALIZACIÓN DEL GRÁFICO (SOLO DATOS)
         if (myChart) {
             myChart.data.datasets[0].data = [46275618, 50531056, 46275618];
-            myChart.update('none'); // actualización sin animación para evitar parpadeo
+            myChart.data.datasets[1].data = [0, 0, 12440664];
+            myChart.update('none');
         }
     }
 
-    // Inicialización una sola vez
     window.addEventListener('load', () => {
-        // Crear gráfico una sola vez
         const ctx = document.getElementById('proporcionalidadChart').getContext('2d');
         myChart = new Chart(ctx, {
             type: 'bar',
@@ -288,20 +283,19 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 20 } } },
+                plugins: { legend: { position: 'top' } },
                 scales: { y: { grid: { color: '#e2e8f0' } } }
             }
         });
 
-        // Primera actualización
         actualizarTodo();
 
-        // Listeners (agregados una sola vez)
-        document.getElementById('mvMalabia').addEventListener('input', actualizarTodo);
-        document.getElementById('tasaPablo').addEventListener('input', actualizarTodo);
-        document.getElementById('periodosPablo').addEventListener('input', actualizarTodo);
-        document.getElementById('tasaLuis').addEventListener('input', actualizarTodo);
-        document.getElementById('periodosLuis').addEventListener('input', actualizarTodo);
+        // Listeners una sola vez
+        const ids = ['mvMalabia','tasaPablo','periodosPablo','tasaLuis','periodosLuis'];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', actualizarTodo);
+        });
     });
 </script>
 </body>
