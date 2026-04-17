@@ -195,10 +195,12 @@
         </table>
     </div>
 
-    <!-- GRÁFICO (corregido para iOS) -->
+    <!-- GRÁFICO (versión estable para iOS) -->
     <div class="mb-12 card p-6 sm:p-10">
         <h2 class="section-title">Gráfico de Distribución 30/30/40 + Ajuste RT 17</h2>
-        <canvas id="proporcionalidadChart" height="220"></canvas>
+        <div class="relative" style="height: 240px;">
+            <canvas id="proporcionalidadChart"></canvas>
+        </div>
     </div>
 
     <!-- 7. DICTAMEN -->
@@ -221,6 +223,7 @@
 <script>
     const formatear = (num) => '$' + Math.round(num).toLocaleString('es-AR');
     const valorHistorico = 452044937;
+    let myChart = null;
 
     function calcularDeuda(principal, tasa, periodos) {
         if (!periodos || periodos < 1) periodos = 3;
@@ -262,12 +265,18 @@
         document.getElementById('impactoPabloBox').innerHTML = `<div class="flex justify-between text-sm"><span>Nueva Deuda (Pablo)</span><span class="font-mono">${formatear(pabloDeuda)}</span></div>`;
         document.getElementById('impactoLuisBox').innerHTML = `<div class="flex justify-between text-sm"><span>Deuda Consolidada (Luis+Jose)</span><span class="font-mono">${formatear(luisDeuda)}</span></div>`;
 
-        // CORRECCIÓN DEL GRÁFICO PARA iOS
-        const canvas = document.getElementById('proporcionalidadChart');
-        if (!canvas) return;
-        if (window.myChart) window.myChart.destroy();
+        // ACTUALIZACIÓN ESTABLE DEL GRÁFICO (sin destruir y recrear)
+        if (myChart) {
+            myChart.data.datasets[0].data = [46275618, 50531056, 46275618];
+            myChart.update('none'); // actualización sin animación para evitar parpadeo
+        }
+    }
 
-        window.myChart = new Chart(canvas.getContext('2d'), {
+    // Inicialización una sola vez
+    window.addEventListener('load', () => {
+        // Crear gráfico una sola vez
+        const ctx = document.getElementById('proporcionalidadChart').getContext('2d');
+        myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['NAVONI (30%)', 'VIFRAN (40%)', 'PAMA (30%)'],
@@ -283,11 +292,11 @@
                 scales: { y: { grid: { color: '#e2e8f0' } } }
             }
         });
-    }
 
-    window.addEventListener('load', actualizarTodo);
-    // Listeners para que todo se actualice en tiempo real
-    window.addEventListener('load', () => {
+        // Primera actualización
+        actualizarTodo();
+
+        // Listeners (agregados una sola vez)
         document.getElementById('mvMalabia').addEventListener('input', actualizarTodo);
         document.getElementById('tasaPablo').addEventListener('input', actualizarTodo);
         document.getElementById('periodosPablo').addEventListener('input', actualizarTodo);
