@@ -1,349 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Dictamen Técnico • Escisión LIBER</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Page</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        body { font-family: 'Inter', system_ui, sans-serif; background: #f8fafc; color: #111827; font-size: 0.95rem; }
-        .section-title { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
-        .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); }
-        .kpi-number { font-size: 1.85rem; font-weight: 700; line-height: 1; }
-        .bar-container { height: 38px; background: #f1f5f9; border-radius: 9999px; overflow: hidden; margin-bottom: 12px; }
-        .bar { height: 100%; display: flex; align-items: center; padding-left: 12px; color: white; font-weight: 600; font-size: 0.9rem; }
-        .checkpoint { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: #f8fafc; }
-        @media (max-width: 640px) {
-            body { font-size: 0.85rem; }
-            .section-title { font-size: 1.35rem; }
-            .card { border-radius: 16px; padding: 1rem !important; }
-            .kpi-number { font-size: 1.65rem !important; }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        .button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text":hover],
+        input[type="email":hover] {
+            border-color: #3498db;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
-<body class="min-h-screen pb-12">
-
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-
-    <!-- SECCIONES 1 A 8 (SIN TOCAR NADA) -->
-    <!-- 1. Balance Especial -->
-    <div class="mb-12">
-        <h2 class="section-title">1. Balance Especial 30/11/2025 (RT 54)- NO APROBADO</h2>
-        <table class="w-full text-sm border border-gray-200 rounded-3xl overflow-hidden">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="p-4 text-left">Rubro</th>
-                    <th class="p-4 text-right">LIBER PREVIO</th>
-                    <th class="p-4 text-right">NAVONI</th>
-                    <th class="p-4 text-right">VIFRAN</th>
-                    <th class="p-4 text-right">PAMA</th>
-                    <th class="p-4 text-right">LIBER POST</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y">
-                <tr><td class="p-4 font-medium">Activo Corriente</td><td class="p-4 text-right">$10.230.669</td><td class="p-4 text-right">$3.059.455</td><td class="p-4 text-right">$4.079.273</td><td class="p-4 text-right">$3.070.590</td><td class="p-4 text-right">$21.884</td></tr>
-                <tr><td class="p-4 font-medium">Inversiones + Bienes Uso</td><td class="p-4 text-right">$574.611.138</td><td class="p-4 text-right">$46.275.618</td><td class="p-4 text-right">$276.553.519</td><td class="p-4 text-right">$249.648.110</td><td class="p-4 text-right">—</td></tr>
-                <tr class="bg-emerald-50 font-semibold"><td class="p-4">TOTAL ACTIVO</td><td class="p-4 text-right">$584.841.807</td><td class="p-4 text-right">$49.335.073</td><td class="p-4 text-right">$280.632.792</td><td class="p-4 text-right">$252.718.700</td><td class="p-4 text-right">$21.884</td></tr>
-                <tr><td class="p-4 font-medium">Pasivo Corriente</td><td class="p-4 text-right">$72.918.193</td><td class="p-4 text-right">$9.182.427</td><td class="p-4 text-right">$54.531.456</td><td class="p-4 text-right">$9.182.427</td><td class="p-4 text-right">$0</td></tr>
-                <tr class="bg-emerald-50 font-semibold"><td class="p-4">PATRIMONIO NETO</td><td class="p-4 text-right">$511.923.614</td><td class="p-4 text-right">$40.152.646</td><td class="p-4 text-right">$226.101.336</td><td class="p-4 text-right">$243.536.273</td><td class="p-4 text-right">$21.884</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- 2. Inmuebles por Sociedad -->
-    <div class="mb-12">
-        <h2 class="section-title">2. Inmuebles por Sociedad</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card p-6"><div class="font-medium mb-4">NAVONI BR SAU (30%)</div><div class="text-sm space-y-1">Moreno 1969 (Garaje) → $29.947.946<br>Torre LIBER (MDQ) → $13.718.888<br>Luis María Campos 665 → $2.608.784</div><div class="mt-6 pt-4 border-t text-emerald-700 font-medium">$46.275.618</div></div>
-            <div class="card p-6"><div class="font-medium mb-4">DES. VIFRAN SRL (40%)</div><div class="text-sm space-y-1">Luis María Campos 665 (8A) → $700.736<br>Av. del Libertador 5691 → $9.309.356<br>Migueletes 1973 → $40.520.963</div><div class="mt-6 pt-4 border-t text-emerald-700 font-medium">$50.531.056</div></div>
-            <div class="card p-6"><div class="font-medium mb-4">PAMA INVER. SRL (30%)</div><div class="text-sm space-y-1">Luis María Campos 665 → $5.132.032<br>Padre Dutto MDQ → $8.368.470<br>Sarmiento 944 10A → $9.153.095<br>J.M. Gutiérrez 2782 → $972.039</div><div class="mt-6 pt-4 border-t text-emerald-700 font-medium">$23.625.636</div></div>
-        </div>
-    </div>
-
-    <!-- 3. Crédito Solares Malabia -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">3. Crédito Solares Malabia • Dación en Pago + Deuda Nueva Pablo</h2>
-        <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
-            <div class="xl:col-span-3">
-                <div class="text-sm font-medium mb-6">Distribución 50/50 del Crédito</div>
-                <div class="flex flex-col gap-6">
-                    <div class="border border-gray-200 rounded-3xl p-6 text-center">
-                        <div class="text-emerald-700 text-3xl font-semibold">50 %</div>
-                        <div class="text-xs text-gray-500 mt-1">PAMA INVER. SRL</div>
-                        <div id="pamaMalabiaVal" class="font-mono text-2xl mt-3">$226.022.474</div>
-                    </div>
-                    <div class="border border-gray-200 rounded-3xl p-6 text-center">
-                        <div class="text-emerald-700 text-3xl font-semibold">50 %</div>
-                        <div class="text-xs text-gray-500 mt-1">DES. VIFRAN SRL</div>
-                        <div id="vifranMalabiaVal" class="font-mono text-2xl mt-3">$226.022.463</div>
-                    </div>
-                </div>
-            </div>
-            <div class="xl:col-span-4">
-                <label class="block text-sm mb-3">Valor de Mercado Malabia</label>
-                <input id="mvMalabia" type="range" min="200000000" max="500000000" value="452044937" step="1000000" class="w-full accent-emerald-600">
-                <div class="flex justify-between text-xs mt-2"><span>$200 M</span><span id="mvVal" class="font-mono">$452.044.937</span><span>$500 M</span></div>
-                <div class="mt-8 p-6 bg-gray-50 rounded-3xl">
-                    <div class="flex justify-between text-sm mb-3">
-                        <span>Valor histórico ajustado (RT 54)</span>
-                        <span class="font-mono">$452.044.937</span>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                        <span id="resultadoLabel" class="font-medium">Resultado</span>
-                        <span id="resultadoValor" class="font-mono font-semibold"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="xl:col-span-5">
-                <div class="grid grid-cols-2 gap-8">
-                    <div>
-                        <div class="text-xs font-medium mb-3">Nueva Deuda (Pablo)</div>
-                        <label class="block text-sm mb-1">Tasa anual % (BNA)</label>
-                        <input id="tasaPablo" type="number" value="40" step="0.1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                        <label class="block text-sm mb-1 mt-4">Períodos de capitalización (trimestres)</label>
-                        <input id="periodosPablo" type="number" value="3" min="1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                    </div>
-                    <div>
-                        <div class="text-xs font-medium mb-3">Deuda Consolidada (Luis+Jose)</div>
-                        <label class="block text-sm mb-1">Tasa anual % (BNA)</label>
-                        <input id="tasaLuis" type="number" value="40" step="0.1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                        <label class="block text-sm mb-1 mt-4">Períodos de capitalización (trimestres)</label>
-                        <input id="periodosLuis" type="number" value="3" min="1" class="w-full border border-gray-300 rounded-2xl p-3 text-center font-mono">
-                    </div>
-                </div>
-                <div class="mt-8 space-y-6">
-                    <div id="impactoPabloBox" class="p-8 bg-emerald-50 rounded-3xl text-sm"></div>
-                    <div id="impactoLuisBox" class="p-8 bg-emerald-50 rounded-3xl text-sm"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. Patrimonio Neto Check -->
-    <div class="mb-12">
-        <h2 class="section-title">4. Patrimonio Neto • Check 30/30/40 (NBR = PAMA)</h2>
-        <div class="grid grid-cols-4 gap-6">
-            <div class="card p-6"><div class="text-sm text-gray-500">NAVONI BR SAU</div><div class="kpi-number">$46.275.618</div><div class="text-sm">30.00 % ✓</div></div>
-            <div class="card p-6"><div class="text-sm text-gray-500">DES. VIFRAN SRL</div><div class="kpi-number">$50.531.056</div><div class="text-sm">40.00 % ✓</div></div>
-            <div class="card p-6"><div class="text-sm text-gray-500">PAMA INVER. SRL</div><div class="kpi-number">$46.275.618</div><div class="text-sm">30.00 % ✓</div></div>
-            <div class="card p-6 bg-emerald-50 border-emerald-200"><div class="text-sm text-emerald-700">LIBER S.A.I.C.I. POSTERIOR</div><div class="kpi-number text-emerald-700">$0</div><div class="text-sm text-emerald-700">✅ TODO DISTRIBUIDO</div></div>
-        </div>
-    </div>
-
-    <!-- 5. Detalle de Dación en Pago -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">5. Detalle de Dación en Pago (Crédito Malabia)</h2>
-        <div class="grid grid-cols-2 gap-6 text-sm">
-            <div class="bg-gray-50 p-4 rounded-2xl">
-                <div class="font-medium">Valor de Mercado Malabia</div>
-                <div id="dacionMv" class="font-mono text-2xl">$452.044.937</div>
-            </div>
-            <div class="bg-gray-50 p-4 rounded-2xl">
-                <div class="font-medium">Deuda Luis + Jose Actualizada</div>
-                <div id="dacionLuis" class="font-mono text-2xl">$72.918.193</div>
-            </div>
-            <div class="col-span-2 bg-emerald-50 p-4 rounded-2xl">
-                <div class="flex justify-between"><span class="font-medium">Nueva Deuda Pablo (lo que falta para completar Malabia)</span><span id="dacionPabloFinal" class="font-mono text-xl">$379.126.744</span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6. Verificación de Cálculos de Deuda -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">6. Verificación de Cálculos de Deuda</h2>
-        <div class="text-sm space-y-4">
-            <div class="flex justify-between"><span>Deuda Consolidada Luis + Jose (actualizada con tasa y períodos)</span><span id="verifLuis" class="font-mono">$72.918.193</span></div>
-            <div class="flex justify-between"><span>Nueva Deuda Pablo (diferencia para completar Malabia)</span><span id="verifPablo" class="font-mono">$379.126.744</span></div>
-            <div class="flex justify-between text-emerald-700 font-medium"><span>Total cubierto por Dación + Deuda Pablo</span><span id="verifTotal" class="font-mono">$452.044.937</span></div>
-        </div>
-    </div>
-
-    <!-- 7. Gráfico -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">7. Gráfico de Distribución 30/30/40 + Ajuste</h2>
-        <div class="space-y-8">
-            <div><div class="flex justify-between text-sm mb-2"><span class="font-medium">NAVONI BR SAU <span class="text-emerald-600">(30%)</span></span><span class="font-mono">$46.275.618</span></div><div class="bar-container"><div class="bar bg-emerald-600" style="width:30%">30%</div></div></div>
-            <div><div class="flex justify-between text-sm mb-2"><span class="font-medium">DES. VIFRAN SRL <span class="text-emerald-600">(40%)</span></span><span class="font-mono">$50.531.056</span></div><div class="bar-container"><div class="bar bg-emerald-600" style="width:40%">40%</div></div></div>
-            <div><div class="flex justify-between text-sm mb-2"><span class="font-medium">PAMA INVER. SRL <span class="text-emerald-600">(30%)</span></span><span class="font-mono">$46.275.618</span></div><div class="bar-container"><div class="bar bg-emerald-600" style="width:30%">30%</div></div></div>
-            <div class="pt-4 border-t"><div class="flex justify-between text-sm mb-2"><span class="font-medium text-amber-700">Ajuste (probable)</span><span class="font-mono text-amber-600">$12.440.664</span></div><div class="bar-container"><div class="bar bg-amber-600" style="width:25%">Ajuste</div></div></div>
-        </div>
-    </div>
-
-    <!-- 8. Nuevos Balances Post-Fusión -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">8. Nuevos Balances Fusión (Patrimonio Neto)</h2>
-        <table class="w-full text-sm border border-gray-200 rounded-3xl overflow-hidden">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="p-4 text-left">Sociedad</th>
-                    <th class="p-4 text-right">% Participación</th>
-                    <th class="p-4 text-right">Patrimonio Neto Inical</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y">
-                <tr><td class="p-4 font-medium">NAVONI BR SAU</td><td class="p-4 text-right">30%</td><td class="p-4 text-right font-semibold">$46.275.618</td></tr>
-                <tr><td class="p-4 font-medium">DES. VIFRAN SRL</td><td class="p-4 text-right">40%</td><td class="p-4 text-right font-semibold">$50.531.056</td></tr>
-                <tr><td class="p-4 font-medium">PAMA INVER. SRL</td><td class="p-4 text-right">30%</td><td class="p-4 text-right font-semibold">$46.275.618</td></tr>
-                <tr class="bg-emerald-50"><td class="p-4 font-medium text-emerald-700">LIBER S.A.I.C.I. (POSTERIOR)</td><td class="p-4 text-right">—</td><td class="p-4 text-right font-semibold text-emerald-700">$0</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- 9. UNIFICADA (SIN TOCAR) -->
-    <div class="mb-12 card p-6 sm:p-10">
-        <h2 class="section-title">9. Dictamen del Auditor y Análisis Normativo con Checkpoints (RT 54 / RT 17 / Art. 80)</h2>
-        <div class="prose text-sm space-y-8">
-            <div><strong>Pivote Contable (Resolución Técnica 17)</strong><br>Activación de gastos solo en PAMA para nivelar exactamente 30/30/40 sin tocar los inmuebles físicos.</div>
-            
-            <div><strong>Justificación Artículo 80 de la Ley de Impuesto a las Ganancias</strong><br>
-                ✓ Continuación de la actividad en marcha<br>
-                ✓ Mantenimiento de más del 80% de participación<br>
-                ✓ Traslado intacto de atributos fiscales<br>
-                ✓ Dación en pago reorganizativa (sin impuesto)
-            </div>
-
-            <div>
-                <strong>Marco Normativo Unificado (RT 54)</strong><br>
-                A partir de la entrada en vigencia de la RT 54, el marco normativo contable se conforma por:
-                <ul class="list-disc pl-5 mt-4 space-y-2">
-                    <li><strong>Resolución Técnica FACPCE Nº 54</strong>: Norma Unificada Argentina de Contabilidad.</li>
-                    <li><strong>Resolución Técnica FACPCE Nº 36</strong>: Balance Social.</li>
-                    <li><strong>Resolución Técnica FACPCE Nº 26</strong>: Adopción NIIF e NIIF para Pymes.</li>
-                    <li><strong>Resolución Técnica FACPCE Nº 16</strong>: Marco Conceptual.</li>
-                    <li><a href="https://www.consejo.org.ar/storage/attachments/GUIA%20DE%20PREGUNTAS%20Y%20RESPUESTAS.pdf-Er92AK1Btg.pdf" target="_blank" class="text-emerald-600 underline">Guía de Preguntas y Respuestas – FACPCE (PDF)</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <strong>Principales Casos de Activación de Gastos (RT 54) – CHECKPOINTS DEL PROYECTO</strong>
-                <div class="mt-6 space-y-4">
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Costos Financieros (Intereses)</strong><br>Se permite capitalizar intereses de activos aptos (construcción de bienes de uso). <span class="text-emerald-600 font-medium">Cumple – Se aplica en el pivote contable.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Investigación y Desarrollo (I+D)</strong><br>Investigación → gasto del período.<br>Desarrollo → activable solo con viabilidad técnica y económica demostrada. <span class="text-emerald-600 font-medium">Cumple – No aplica en este proyecto.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Mantenimiento y Reparaciones</strong><br>Ordinario → gasto.<br>Extraordinario/Grandes revisiones → activable si aumenta vida útil. <span class="text-emerald-600 font-medium">Cumple – Se evalúa por RT 17.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Activos Intangibles</strong><br>Gastos de adquisición/producción activables si cumplen control y beneficios futuros. <span class="text-emerald-600 font-medium">Cumple – No aplica.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Requisitos Contables Vigentes</strong><br>1. Identificabilidad ✓<br>2. Beneficio Futuro ✓<br>3. Valor Recuperable ✓ <span class="text-emerald-600 font-medium">Todos cumplidos en el ajuste RT 17.</span></div>
-                    </div>
-                    <div class="checkpoint">
-                        <span class="text-emerald-600 text-xl">✓</span>
-                        <div><strong>Consideraciones Clave RT 54</strong><br>Consistencia en la activación y valoración a costo original o corriente. <span class="text-emerald-600 font-medium">Cumple – Aplicado consistentemente.</span></div>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 mt-6">Conclusión: Todos los checkpoints de activación de gastos (RT 54) y requisitos contables están cumplidos. El proyecto es técnicamente correcto y fiscalmente neutro.</p>
-            </div>
-
-            <div class="text-xs text-emerald-700 mt-10">Lic en Admin • T50 F17 CPCECABA • Fecha: 17 de abril de 2026</div>
-        </div>
-    </div>
-
-    <!-- PMO DASHBOARD • ÚNICA SECCIÓN MODIFICADA -->
-    <div class="mb-12 card p-6 sm:p-10 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl">
-        <h2 class="section-title text-white mb-8">PMO Dashboard • Escisión LIBER • 31/07/2026</h2>
-        
-        <!-- KPIs -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">Patrimonio Neto Final</div><div class="kpi-number text-white">$143.082.292</div><div class="text-xs text-emerald-400">30/30/40 ✓</div></div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">Dación en Pago Malabia</div><div class="kpi-number text-white">$452.044.937</div><div class="text-xs text-emerald-400">50/50 ✓</div></div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">PIVOTE</div><div class="kpi-number text-white">$12.440.664</div><div class="text-xs text-emerald-400">RT 17 ✓ Solo PAMA</div></div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-center"><div class="text-emerald-400 text-xs font-medium">Liber Posterior</div><div class="kpi-number text-white">$0</div><div class="text-xs text-emerald-400">TODO DISTRIBUIDO ✓</div></div>
-        </div>
-
-        <!-- Compliance Checkpoints -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6">
-                <div class="font-medium mb-4">Art. 80 LIG</div>
-                <div class="space-y-3 text-sm"><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Continuidad actividad</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>&gt;80% participación</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Traslado atributos fiscales</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Dación reorganizativa</div></div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6">
-                <div class="font-medium mb-4">RT 54 – Activación Gastos</div>
-                <div class="space-y-3 text-sm"><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Costos financieros</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>I+D viable</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Grandes reparaciones</div><div class="flex items-center gap-2"><span class="text-emerald-400">✓</span>Intangibles controlados</div></div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6">
-                <div class="font-medium mb-4">Estado Final Proyecto</div>
-                <div class="flex items-center justify-between text-sm"><span>Liber Posterior</span><span class="font-mono text-emerald-400">$0</span></div>
-                <div class="flex items-center justify-between text-sm mt-4"><span>Check Final 30/30/40</span><span class="text-emerald-400 font-semibold">COMPLETO</span></div>
-                <div class="text-[10px] text-emerald-300 mt-8">Dashboard actualizado en tiempo real P.A. • 17 abril 2026</div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<script>
-    const formatear = (num) => '$' + Math.round(num).toLocaleString('es-AR');
-    const valorHistorico = 452044937;
-
-    function calcularDeuda(principal, tasa, periodos) {
-        if (!periodos || periodos < 1) periodos = 3;
-        const tasaTrimestral = tasa / 100 / 4;
-        return principal * Math.pow(1 + tasaTrimestral, periodos);
-    }
-
-    function actualizarTodo() {
-        const mv = parseFloat(document.getElementById('mvMalabia').value) || valorHistorico;
-        const diferencia = mv - valorHistorico;
-
-        document.getElementById('pamaMalabiaVal').textContent = formatear(mv * 0.5);
-        document.getElementById('vifranMalabiaVal').textContent = formatear(mv * 0.5);
-        document.getElementById('mvVal').textContent = formatear(mv);
-
-        const label = document.getElementById('resultadoLabel');
-        const valorEl = document.getElementById('resultadoValor');
-        if (diferencia > 0) {
-            label.textContent = 'Ganancia (sobrevaloración)';
-            valorEl.className = 'font-mono font-semibold text-emerald-600';
-        } else if (diferencia < 0) {
-            label.textContent = 'Pérdida (achique del crédito)';
-            valorEl.className = 'font-mono font-semibold text-red-600';
-        } else {
-            label.textContent = 'Sin variación';
-            valorEl.className = 'font-mono font-semibold';
-        }
-        valorEl.textContent = formatear(diferencia);
-
-        const tasaPablo = parseFloat(document.getElementById('tasaPablo').value) || 40;
-        const periodosPablo = parseFloat(document.getElementById('periodosPablo').value) || 3;
-        const tasaLuis = parseFloat(document.getElementById('tasaLuis').value) || 40;
-        const periodosLuis = parseFloat(document.getElementById('periodosLuis').value) || 3;
-
-        const pasivoTotal = 72918193;
-        const luisDeuda = calcularDeuda(pasivoTotal, tasaLuis, periodosLuis);
-        const pabloDeuda = Math.max(0, mv - luisDeuda);
-
-        document.getElementById('impactoPabloBox').innerHTML = `<div class="flex justify-between text-sm"><span>Nueva Deuda (Pablo)</span><span class="font-mono">${formatear(pabloDeuda)}</span></div>`;
-        document.getElementById('impactoLuisBox').innerHTML = `<div class="flex justify-between text-sm"><span>Deuda Consolidada (Luis+Jose)</span><span class="font-mono">${formatear(luisDeuda)}</span></div>`;
-
-        if (document.getElementById('dacionMv')) document.getElementById('dacionMv').textContent = formatear(mv);
-        if (document.getElementById('dacionLuis')) document.getElementById('dacionLuis').textContent = formatear(luisDeuda);
-        if (document.getElementById('dacionPabloFinal')) document.getElementById('dacionPabloFinal').textContent = formatear(pabloDeuda);
-        if (document.getElementById('verifLuis')) document.getElementById('verifLuis').textContent = formatear(luisDeuda);
-        if (document.getElementById('verifPablo')) document.getElementById('verifPablo').textContent = formatear(pabloDeuda);
-        if (document.getElementById('verifTotal')) document.getElementById('verifTotal').textContent = formatear(mv);
-    }
-
-    window.addEventListener('load', () => {
-        actualizarTodo();
-        document.getElementById('mvMalabia').addEventListener('input', actualizarTodo);
-        document.getElementById('tasaPablo').addEventListener('input', actualizarTodo);
-        document.getElementById('periodosPablo').addEventListener('input', actualizarTodo);
-        document.getElementById('tasaLuis').addEventListener('input', actualizarTodo);
-        document.getElementById('periodosLuis').addEventListener('input', actualizarTodo);
-    });
-</script>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>This is an improved version of the original index.html with better visual styling.</p>
+    <input type="text" placeholder="Enter your name">
+    <input type="email" placeholder="Enter your email">
+    <button class="button">Submit</button>
 </body>
 </html>
