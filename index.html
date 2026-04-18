@@ -324,27 +324,53 @@
 <!-- ═══════════════════════════════════════
      HEADER
 ════════════════════════════════════════ -->
-<div class="hdr">
+<!-- ═══════════════════════════════════════
+     HEADER (fondo negro · contraste blanco)
+════════════════════════════════════════ -->
+<div class="hdr" style="background:#0a0a0a">
   <div class="hdr-eyebrow">Dictamen de Reorganización Corporativa</div>
-  <div class="hdr-top">
+
+  <!-- Título principal + status -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:22px;position:relative;z-index:1">
     <div>
       <div class="hdr-title">Escisión-Fusión LIBER S.A.I.C.I.</div>
       <div class="hdr-sub">Tratamiento Integral: RT 54 · RT 17 · Art. 80 LIG · Sinceramiento de Activos</div>
-      <div class="hdr-badge">NO APROBADO · EN PROCESO TÉCNICO</div>
+      <div class="hdr-badge" style="background:rgba(229,62,62,.15);border-color:rgba(229,62,62,.35);color:#ff9999;margin-top:10px">NO APROBADO</div>
     </div>
-    <div class="hdr-date-box">
+    <div class="hdr-date-box" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
       <div class="hdr-date-label">Fecha de Emisión</div>
       <div class="hdr-date-val">17 de Abril, 2026</div>
       <div class="hdr-date-status">&#11044; En Proceso Técnico</div>
     </div>
   </div>
-  <div class="hdr-meta">
+
+  <!-- Bloque dual: Balance Previo (rechazado) vs Nueva Fecha Propuesta -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:1">
+
+    <!-- Balance previo rechazado -->
+    <div style="background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.25);border-left:4px solid var(--danger);border-radius:10px;padding:14px 16px">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#ff9999;margin-bottom:6px">&#9888; Balance Previo — Rechazado</div>
+      <div style="font-size:13px;font-weight:700;color:#ffffff;margin-bottom:3px">Escisión-Fusión LIBER S.A.I.C.I.</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.5">Balance de corte <strong style="color:#ffffff">30/11/2025</strong> · <span style="color:#ff9999;font-weight:600">NO Aprobado</span></div>
+    </div>
+
+    <!-- Nueva fecha propuesta -->
+    <div style="background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.3);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:6px">&#9656; Nueva Fecha Propuesta</div>
+      <div style="font-size:13px;font-weight:700;color:#ffffff;margin-bottom:3px">Escisión-Fusión LIBER S.A.I.C.I.</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.5">Vencimiento <strong style="color:#ffffff">31/07/2026</strong> · <span style="color:var(--accent);font-weight:600">Proyectado</span></div>
+    </div>
+
+  </div>
+
+  <!-- Meta footer con firma y distribución -->
+  <div class="hdr-meta" style="border-color:rgba(255,255,255,.08)">
     <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Lic. en Adm. · T50 F17 CPCECABA</div>
-    <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Balance de corte 30/11/2025</div>
     <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Distribución 30 / 30 / 40</div>
-    <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Vencimiento 31/07/2026</div>
+    <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Art. 88 Inc. III LGS · Art. 80 LIG</div>
   </div>
 </div>
+
 
 
 
@@ -465,9 +491,213 @@
 </div>
 
 <!-- ═══════════════════════════════════════
+     CRONOGRAMA EJECUTIVO · 5 FASES (RESCATADO)
+════════════════════════════════════════ -->
+<div class="sec-label mb8">Sección 2 · Ruta Crítica · Cronograma Ejecutivo · Abril 2026 → Julio 2028</div>
+<div style="font-size:11.5px;color:var(--text3);margin-bottom:14px;padding-left:2px">Horizonte real del proyecto: 24 meses de resguardo desde la fecha de reorganización efectiva</div>
+
+<div class="card mb20" style="padding:0;overflow:hidden">
+
+  <!-- FASE 0 -->
+  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
+    <div style="display:flex;align-items:flex-start;gap:16px">
+      <div style="flex-shrink:0;width:52px;text-align:center">
+        <div style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);border-radius:8px;padding:6px 4px">
+          <div style="font-size:9px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em">Fase</div>
+          <div style="font-size:20px;font-weight:800;color:var(--gold);line-height:1">0</div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div style="font-size:13px;font-weight:700;color:var(--text)">Ventana Operativa — Preparación del Balance Limpio</div>
+          <span style="font-size:10px;font-weight:600;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:5px;padding:3px 9px">ABRIL → JULIO 2026 · HOY</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">&#9650; Acción 1</div>
+            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:4px">Regularizar acciones propias</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Las 200 acciones de LIBER deben darse de baja contablemente antes del 31/07. No pueden figurar en el balance de escisión.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:10px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">&#9650; Acción 2</div>
+            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:4px">Documentar empresa en marcha</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">12 meses continuos hasta 31/07/2026. IVA mensual presentado, contratos, movimientos bancarios, honorarios. ARCA lo va a pedir.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:10px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">&#9650; Acción 3</div>
+            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:4px">Activar gastos capitalizables RT 17</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Mejoras en inmuebles, refacciones extraordinarias, honorarios del proceso reorganizativo. Engrosa el activo de forma legítima.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
+    <div style="display:flex;align-items:flex-start;gap:16px">
+      <div style="flex-shrink:0;width:52px;text-align:center">
+        <div style="background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.35);border-radius:8px;padding:6px 4px">
+          <div style="font-size:9px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em">Fase</div>
+          <div style="font-size:20px;font-weight:800;color:var(--accent2);line-height:1">1</div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div style="font-size:13px;font-weight:700;color:var(--text)">Balance Especial y Resolución Social</div>
+          <span style="font-size:10px;font-weight:600;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.25);border-radius:5px;padding:3px 9px">JULIO → OCTUBRE 2026</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Balance especial al 31/07/2026</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Con ajuste por inflación RT 54 (índice FACPCE al cierre), informe de auditor completo, inventario de inmuebles registrables con certificados de dominio e inhibiciones. La IGJ no admite certificación literal.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Asamblea extraordinaria unánime</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Aprueba: escisión total con disolución, distribución 30/30/40, estatutos de las tres continuadoras, cancelación de todas las acciones de LIBER. Publicación 3 días Boletín Oficial + diario nacional.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
+    <div style="display:flex;align-items:flex-start;gap:16px">
+      <div style="flex-shrink:0;width:52px;text-align:center">
+        <div style="background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.35);border-radius:8px;padding:6px 4px">
+          <div style="font-size:9px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:.06em">Fase</div>
+          <div style="font-size:20px;font-weight:800;color:var(--indigo);line-height:1">2</div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div style="font-size:13px;font-weight:700;color:var(--text)">Constitución Simultánea e Inscripción IGJ</div>
+          <span style="font-size:10px;font-weight:600;color:var(--indigo);background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.25);border-radius:5px;padding:3px 9px">OCTUBRE → DICIEMBRE 2026</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Escritura de constitución</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Vencido el período de oposición de acreedores: otorgamiento simultáneo de los tres instrumentos de constitución. LIBER queda disuelta en ese mismo acto. PN = $0.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Presentación IGJ</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Formulario de reorganización escisión + dictamen de precalificación (abogado + graduado en ciencias económicas) + balance consolidado. Un formulario por cada sociedad interviniente.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Nacimiento jurídico y fiscal</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">NAVONI, VIFRAN y PAMA obtienen CUIT vía IGJ (RG 4584/2019). Nacimiento jurídico y fiscal unificado en el mismo acto. No existen antes de este momento.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
+    <div style="display:flex;align-items:flex-start;gap:16px">
+      <div style="flex-shrink:0;width:52px;text-align:center">
+        <div style="background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.35);border-radius:8px;padding:6px 4px">
+          <div style="font-size:9px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:.06em">Fase</div>
+          <div style="font-size:20px;font-weight:800;color:var(--danger);line-height:1">3</div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div style="font-size:13px;font-weight:700;color:var(--text)">Comunicación ARCA — Vencimiento Crítico</div>
+          <span style="font-size:10px;font-weight:700;color:var(--danger);background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.3);border-radius:5px;padding:3px 9px">&#9888; VENCE 27/01/2027</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+          <div style="background:rgba(229,62,62,.04);border:1px solid rgba(229,62,62,.2);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">F.8006 — 180 días corridos</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Aplicativo ARCA "Régimen Informativo de Reorganización — Escisión — Versión 2.0". Envío electrónico con clave fiscal. Vence el 27/01/2027. Si no se cumple, la reorganización pierde todos sus efectos fiscales de manera automática e irrecuperable.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Nota complementaria — 60 días adicionales</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Formulario Multinota RG 1128/2001. Se presenta en la dependencia ARCA-DGI donde está inscripta la sociedad, dentro de los 60 días corridos desde que ARCA pone a disposición el resultado del control formal del F.8006.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div style="padding:20px 24px">
+    <div style="display:flex;align-items:flex-start;gap:16px">
+      <div style="flex-shrink:0;width:52px;text-align:center">
+        <div style="background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.35);border-radius:8px;padding:6px 4px">
+          <div style="font-size:9px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em">Fase</div>
+          <div style="font-size:20px;font-weight:800;color:var(--accent2);line-height:1">4</div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div style="font-size:13px;font-weight:700;color:var(--text)">Período de Resguardo — Condición Resolutoria</div>
+          <span style="font-size:10px;font-weight:600;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.25);border-radius:5px;padding:3px 9px">AGOSTO 2026 → JULIO 2028</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px">
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Actividad continua</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">NAVONI, VIFRAN y PAMA deben demostrar actividad real durante 24 meses: facturas emitidas, contratos, DDJJ presentadas, movimientos bancarios. Basta con alguna de las actividades de la antecesora.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Participación mínima 80%</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Los titulares de LIBER deben mantener no menos del 80% de su participación en el capital de cada continuadora durante los 24 meses. Cualquier transferencia parcial a terceros puede hacer decaer el beneficio.</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Incumplimiento — 90 días</div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Si se cambia o abandona la actividad, o se pierde el 80% de participación: 90 días corridos para rectificar las DDJJ y pagar el impuesto con más los intereses resarcitorios correspondientes.</div>
+          </div>
+        </div>
+
+        <!-- Línea de tiempo visual -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:10px">Línea de tiempo · Horizonte real del proyecto</div>
+          <div style="position:relative;height:8px;background:var(--surface3);border-radius:4px;overflow:visible;margin-bottom:24px">
+            <!-- Barra completada ~25% (hasta hoy) -->
+            <div style="position:absolute;left:0;top:0;height:100%;width:25%;background:var(--accent);border-radius:4px"></div>
+            <!-- Hito HOY -->
+            <div style="position:absolute;left:25%;top:-4px;width:2px;height:16px;background:var(--gold)"></div>
+            <!-- Hito Reorganización -->
+            <div style="position:absolute;left:50%;top:-4px;width:2px;height:16px;background:var(--accent2)"></div>
+            <!-- Hito ARCA F.8006 -->
+            <div style="position:absolute;left:64%;top:-4px;width:2px;height:16px;background:var(--danger)"></div>
+            <!-- Hito Fin Resguardo -->
+            <div style="position:absolute;left:100%;top:-4px;width:2px;height:16px;background:var(--indigo);transform:translateX(-2px)"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px">
+            <div style="text-align:center">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--gold);margin:0 auto 3px"></div>
+              <div style="font-size:9px;font-weight:700;color:var(--gold)">HOY</div>
+              <div style="font-size:9px;color:var(--text3)">Abr 2026</div>
+            </div>
+            <div style="text-align:center">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin:0 auto 3px"></div>
+              <div style="font-size:9px;font-weight:700;color:var(--accent2)">REORGANIZACIÓN</div>
+              <div style="font-size:9px;color:var(--text3)">31 Jul 2026</div>
+            </div>
+            <div style="text-align:center">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--danger);margin:0 auto 3px"></div>
+              <div style="font-size:9px;font-weight:700;color:var(--danger)">VENCE F.8006</div>
+              <div style="font-size:9px;color:var(--text3)">27 Ene 2027</div>
+            </div>
+            <div style="text-align:center">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--indigo);margin:0 auto 3px"></div>
+              <div style="font-size:9px;font-weight:700;color:var(--indigo)">FIN RESGUARDO</div>
+              <div style="font-size:9px;color:var(--text3)">31 Jul 2028</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════
      SECCIÓN 2 · INMUEBLES POR SOCIEDAD
 ════════════════════════════════════════ -->
-<div class="sec-label mb8">Sección 2 · Inmuebles por Sociedad (Sin Crédito Solares de Malabia)</div>
+<div class="sec-label mb8">Sección 3 · Inmuebles por Sociedad (Sin Crédito Solares de Malabia)</div>
 <div style="font-size:11.5px;color:var(--text2);margin-bottom:14px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;line-height:1.55">Los <strong style="color:var(--text)">porcentajes reales</strong> se calculan sobre el PN Total de <strong style="color:var(--text);font-variant-numeric:tabular-nums">$143.082.292</strong>. La brecha entre el <strong style="color:var(--accent2)">% Objetivo</strong> (proporcionalidad 30/30/40) y el <strong style="color:var(--gold)">% Real</strong> revela el desequilibrio que justifica el pivote del AJUSTE en PAMA.</div>
 <div class="grid-3 mb20">
   <div class="card-sm">
@@ -583,7 +813,7 @@
      SECCIÓN 3 · CRÉDITO MALABIA (REDISEÑADA)
      Una sola ecuación integrada, 3 columnas narrativas
 ════════════════════════════════════════ -->
-<div class="sec-label mb8">Sección 3 · Crédito Solares de Malabia · Ecuación de la Dación en Pago</div>
+<div class="sec-label mb8">Sección 4 · Crédito Solares de Malabia · Ecuación de la Dación en Pago</div>
 
 <div class="card mb28" style="padding:0;overflow:hidden">
 
@@ -737,7 +967,7 @@
 <!-- ═══════════════════════════════════════
      SECCIÓN 4 · PATRIMONIO NETO · EL AJUSTE COMO PIVOTE
 ════════════════════════════════════════ -->
-<div class="sec-label mb8">Sección 4 · Patrimonio Neto · El Ajuste como Pivote de la Proporcionalidad 30/30/40</div>
+<div class="sec-label mb8">Sección 5 · Patrimonio Neto · El Ajuste como Pivote de la Proporcionalidad 30/30/40</div>
 
 <!-- ─── BLOQUE PIVOTE: Ajuste central + 3 sociedades en órbita + ecuación ─── -->
 <div class="card mb20" style="padding:28px 24px">
@@ -1019,291 +1249,6 @@
 </div><!-- /wrapper Sección 4 · Mapa de Ruta -->
 
 <!-- ═══════════════════════════════════════
-     SECCIÓN 5 · BLINDAJE FISCAL + DICTAMEN RT 54/17
-════════════════════════════════════════ -->
-<div class="sec-label mb8">Sección 5 · Blindaje Fiscal · Art. 80 LIG + Dictamen del Auditor · Análisis Normativo RT 54 / RT 17</div>
-<div class="card indigo-left mb28">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px">
-    <div>
-      <div class="sec-title indigo" style="margin-bottom:4px">Garantía de Neutralidad Fiscal</div>
-      <div style="font-size:12px;color:var(--text2);padding-left:14px">Los activos se trasladan a costo impositivo histórico sin impacto tributario en las continuadoras.</div>
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <span class="kpi-badge badge-indigo">PROPORCIONALIDAD &#10003;</span>
-      <span class="kpi-badge badge-indigo">CONTINUIDAD &#10003;</span>
-      <span class="kpi-badge badge-green">ART. 80 LIG &#10003;</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="cp-grid">
-      <div class="cp">
-        <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><div class="cp-title">Invariabilidad del costo impositivo</div><div class="cp-desc">Costo base $452.044.937. Sin impacto fiscal por el sinceramiento contable.</div></div>
-      </div>
-      <div class="cp">
-        <div class="cp-icon indigo"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v4l3 2" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div><div class="cp-title">Permanencia de 24 meses</div><div class="cp-desc">Compromiso de mantenimiento de actividad y participación hasta julio 2028.</div></div>
-      </div>
-      <div class="cp">
-        <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><div class="cp-title">Traslado de atributos fiscales</div><div class="cp-desc">Quebranto, amortizaciones y bases trasladadas íntegramente a las continuadoras.</div></div>
-      </div>
-      <div class="cp">
-        <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><div class="cp-title">Dación en pago reorganizativa</div><div class="cp-desc">Sin impuesto. Crédito Solares de Malabia 50/50 PAMA / VIFRAN conforme Art. 80.</div></div>
-      </div>
-    </div>
-    <div style="max-width:230px;align-self:center">
-      <div class="formula-box">
-        <div class="formula-eyebrow">Fórmula de Estabilidad</div>
-        <div class="formula-eq">&#931; PN<sub>Cont.</sub> = PN<sub>LIBER</sub></div>
-        <div class="formula-note">La reorganización es neutra: el PN Final es proporcional a la tenencia histórica (30/30/40).</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ─── Sección 9 (fusionado) · Dictamen Auditor RT 54 / RT 17 ─── -->
-<div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--accent2);margin:22px 0 10px">&#9632; Dictamen del Auditor · Análisis Normativo RT 54 / RT 17</div>
-<div class="card mb20">
-  <div class="sec-title">Checkpoints de cumplimiento normativo</div>
-  <div class="cp-grid">
-    <div class="cp">
-      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="cp-title">RT 54 · Costos financieros capitalizables</div><div class="cp-desc">Intereses de activos aptos en construcción. Pivote aplicado exclusivamente en PAMA.</div></div>
-    </div>
-    <div class="cp">
-      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="cp-title">RT 17 · Grandes reparaciones activables</div><div class="cp-desc">Mantenimiento extraordinario que extiende vida útil. Identificabilidad y recuperabilidad cumplidas.</div></div>
-    </div>
-    <div class="cp">
-      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="cp-title">Investigación y Desarrollo (I+D)</div><div class="cp-desc">Investigación → gasto del período. Desarrollo → activable solo con viabilidad técnica y económica.</div></div>
-    </div>
-    <div class="cp">
-      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="cp-title">Activos Intangibles controlados</div><div class="cp-desc">Gastos activables con control y beneficios futuros demostrados. No aplica en este proyecto.</div></div>
-    </div>
-    <div class="cp">
-      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="cp-title">Requisitos contables vigentes</div><div class="cp-desc">Identificabilidad &#10003; · Beneficio Futuro &#10003; · Valor Recuperable &#10003; — Todos cumplidos.</div></div>
-    </div>
-    <div class="cp">
-      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="cp-title">Consistencia de valuación RT 54</div><div class="cp-desc">Costo original ajustado aplicado uniformemente en todas las sociedades escindidas.</div></div>
-    </div>
-  </div>
-  <div style="margin-top:14px;padding:11px 14px;background:rgba(0,195,137,.05);border:1px solid rgba(0,195,137,.18);border-radius:8px;font-size:11px;color:var(--text2)">
-    <strong style="color:var(--accent2)">Conclusión:</strong> Todos los checkpoints normativos están cumplidos. El proyecto es técnicamente correcto y fiscalmente neutro conforme al Art. 80 de la Ley de Impuesto a las Ganancias.
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════
-     CRONOGRAMA EJECUTIVO · 5 FASES (RESCATADO)
-════════════════════════════════════════ -->
-<div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--accent2);margin:28px 0 10px">&#9632; Cronograma Ejecutivo · Abril 2026 → Julio 2028</div>
-<div style="font-size:11.5px;color:var(--text3);margin-bottom:14px;padding-left:2px">Horizonte real del proyecto: 24 meses de resguardo desde la fecha de reorganización efectiva</div>
-
-<div class="card mb20" style="padding:0;overflow:hidden">
-
-  <!-- FASE 0 -->
-  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
-    <div style="display:flex;align-items:flex-start;gap:16px">
-      <div style="flex-shrink:0;width:52px;text-align:center">
-        <div style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);border-radius:8px;padding:6px 4px">
-          <div style="font-size:9px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em">Fase</div>
-          <div style="font-size:20px;font-weight:800;color:var(--gold);line-height:1">0</div>
-        </div>
-      </div>
-      <div style="flex:1;min-width:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">Ventana Operativa — Preparación del Balance Limpio</div>
-          <span style="font-size:10px;font-weight:600;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:5px;padding:3px 9px">ABRIL → JULIO 2026 · HOY</span>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">&#9650; Acción 1</div>
-            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:4px">Regularizar acciones propias</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Las 200 acciones de LIBER deben darse de baja contablemente antes del 31/07. No pueden figurar en el balance de escisión.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:10px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">&#9650; Acción 2</div>
-            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:4px">Documentar empresa en marcha</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">12 meses continuos hasta 31/07/2026. IVA mensual presentado, contratos, movimientos bancarios, honorarios. ARCA lo va a pedir.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:10px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">&#9650; Acción 3</div>
-            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:4px">Activar gastos capitalizables RT 17</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Mejoras en inmuebles, refacciones extraordinarias, honorarios del proceso reorganizativo. Engrosa el activo de forma legítima.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 1 -->
-  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
-    <div style="display:flex;align-items:flex-start;gap:16px">
-      <div style="flex-shrink:0;width:52px;text-align:center">
-        <div style="background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.35);border-radius:8px;padding:6px 4px">
-          <div style="font-size:9px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em">Fase</div>
-          <div style="font-size:20px;font-weight:800;color:var(--accent2);line-height:1">1</div>
-        </div>
-      </div>
-      <div style="flex:1;min-width:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">Balance Especial y Resolución Social</div>
-          <span style="font-size:10px;font-weight:600;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.25);border-radius:5px;padding:3px 9px">JULIO → OCTUBRE 2026</span>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Balance especial al 31/07/2026</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Con ajuste por inflación RT 54 (índice FACPCE al cierre), informe de auditor completo, inventario de inmuebles registrables con certificados de dominio e inhibiciones. La IGJ no admite certificación literal.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Asamblea extraordinaria unánime</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Aprueba: escisión total con disolución, distribución 30/30/40, estatutos de las tres continuadoras, cancelación de todas las acciones de LIBER. Publicación 3 días Boletín Oficial + diario nacional.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 2 -->
-  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
-    <div style="display:flex;align-items:flex-start;gap:16px">
-      <div style="flex-shrink:0;width:52px;text-align:center">
-        <div style="background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.35);border-radius:8px;padding:6px 4px">
-          <div style="font-size:9px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:.06em">Fase</div>
-          <div style="font-size:20px;font-weight:800;color:var(--indigo);line-height:1">2</div>
-        </div>
-      </div>
-      <div style="flex:1;min-width:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">Constitución Simultánea e Inscripción IGJ</div>
-          <span style="font-size:10px;font-weight:600;color:var(--indigo);background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.25);border-radius:5px;padding:3px 9px">OCTUBRE → DICIEMBRE 2026</span>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Escritura de constitución</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Vencido el período de oposición de acreedores: otorgamiento simultáneo de los tres instrumentos de constitución. LIBER queda disuelta en ese mismo acto. PN = $0.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Presentación IGJ</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Formulario de reorganización escisión + dictamen de precalificación (abogado + graduado en ciencias económicas) + balance consolidado. Un formulario por cada sociedad interviniente.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Nacimiento jurídico y fiscal</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">NAVONI, VIFRAN y PAMA obtienen CUIT vía IGJ (RG 4584/2019). Nacimiento jurídico y fiscal unificado en el mismo acto. No existen antes de este momento.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 3 -->
-  <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
-    <div style="display:flex;align-items:flex-start;gap:16px">
-      <div style="flex-shrink:0;width:52px;text-align:center">
-        <div style="background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.35);border-radius:8px;padding:6px 4px">
-          <div style="font-size:9px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:.06em">Fase</div>
-          <div style="font-size:20px;font-weight:800;color:var(--danger);line-height:1">3</div>
-        </div>
-      </div>
-      <div style="flex:1;min-width:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">Comunicación ARCA — Vencimiento Crítico</div>
-          <span style="font-size:10px;font-weight:700;color:var(--danger);background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.3);border-radius:5px;padding:3px 9px">&#9888; VENCE 27/01/2027</span>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-          <div style="background:rgba(229,62,62,.04);border:1px solid rgba(229,62,62,.2);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">F.8006 — 180 días corridos</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Aplicativo ARCA "Régimen Informativo de Reorganización — Escisión — Versión 2.0". Envío electrónico con clave fiscal. Vence el 27/01/2027. Si no se cumple, la reorganización pierde todos sus efectos fiscales de manera automática e irrecuperable.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Nota complementaria — 60 días adicionales</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Formulario Multinota RG 1128/2001. Se presenta en la dependencia ARCA-DGI donde está inscripta la sociedad, dentro de los 60 días corridos desde que ARCA pone a disposición el resultado del control formal del F.8006.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 4 -->
-  <div style="padding:20px 24px">
-    <div style="display:flex;align-items:flex-start;gap:16px">
-      <div style="flex-shrink:0;width:52px;text-align:center">
-        <div style="background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.35);border-radius:8px;padding:6px 4px">
-          <div style="font-size:9px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em">Fase</div>
-          <div style="font-size:20px;font-weight:800;color:var(--accent2);line-height:1">4</div>
-        </div>
-      </div>
-      <div style="flex:1;min-width:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">Período de Resguardo — Condición Resolutoria</div>
-          <span style="font-size:10px;font-weight:600;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.25);border-radius:5px;padding:3px 9px">AGOSTO 2026 → JULIO 2028</span>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px">
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Actividad continua</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">NAVONI, VIFRAN y PAMA deben demostrar actividad real durante 24 meses: facturas emitidas, contratos, DDJJ presentadas, movimientos bancarios. Basta con alguna de las actividades de la antecesora.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Participación mínima 80%</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Los titulares de LIBER deben mantener no menos del 80% de su participación en el capital de cada continuadora durante los 24 meses. Cualquier transferencia parcial a terceros puede hacer decaer el beneficio.</div>
-          </div>
-          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
-            <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">Incumplimiento — 90 días</div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Si se cambia o abandona la actividad, o se pierde el 80% de participación: 90 días corridos para rectificar las DDJJ y pagar el impuesto con más los intereses resarcitorios correspondientes.</div>
-          </div>
-        </div>
-
-        <!-- Línea de tiempo visual -->
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:10px">Línea de tiempo · Horizonte real del proyecto</div>
-          <div style="position:relative;height:8px;background:var(--surface3);border-radius:4px;overflow:visible;margin-bottom:24px">
-            <!-- Barra completada ~25% (hasta hoy) -->
-            <div style="position:absolute;left:0;top:0;height:100%;width:25%;background:var(--accent);border-radius:4px"></div>
-            <!-- Hito HOY -->
-            <div style="position:absolute;left:25%;top:-4px;width:2px;height:16px;background:var(--gold)"></div>
-            <!-- Hito Reorganización -->
-            <div style="position:absolute;left:50%;top:-4px;width:2px;height:16px;background:var(--accent2)"></div>
-            <!-- Hito ARCA F.8006 -->
-            <div style="position:absolute;left:64%;top:-4px;width:2px;height:16px;background:var(--danger)"></div>
-            <!-- Hito Fin Resguardo -->
-            <div style="position:absolute;left:100%;top:-4px;width:2px;height:16px;background:var(--indigo);transform:translateX(-2px)"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px">
-            <div style="text-align:center">
-              <div style="width:8px;height:8px;border-radius:50%;background:var(--gold);margin:0 auto 3px"></div>
-              <div style="font-size:9px;font-weight:700;color:var(--gold)">HOY</div>
-              <div style="font-size:9px;color:var(--text3)">Abr 2026</div>
-            </div>
-            <div style="text-align:center">
-              <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin:0 auto 3px"></div>
-              <div style="font-size:9px;font-weight:700;color:var(--accent2)">REORGANIZACIÓN</div>
-              <div style="font-size:9px;color:var(--text3)">31 Jul 2026</div>
-            </div>
-            <div style="text-align:center">
-              <div style="width:8px;height:8px;border-radius:50%;background:var(--danger);margin:0 auto 3px"></div>
-              <div style="font-size:9px;font-weight:700;color:var(--danger)">VENCE F.8006</div>
-              <div style="font-size:9px;color:var(--text3)">27 Ene 2027</div>
-            </div>
-            <div style="text-align:center">
-              <div style="width:8px;height:8px;border-radius:50%;background:var(--indigo);margin:0 auto 3px"></div>
-              <div style="font-size:9px;font-weight:700;color:var(--indigo)">FIN RESGUARDO</div>
-              <div style="font-size:9px;color:var(--text3)">31 Jul 2028</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
      SECCIÓN 6 · CHECKLIST OPERATIVO POR HITO
      Integra los Hitos A-E del colaborador con el sistema de diseño madre
 ════════════════════════════════════════ -->
@@ -1510,6 +1455,87 @@ Se da pleno cumplimiento al requisito de continuidad de atributos fiscales del A
 </div>
 
 <!-- ═══════════════════════════════════════
+     SECCIÓN 5 · BLINDAJE FISCAL + DICTAMEN RT 54/17
+════════════════════════════════════════ -->
+<div class="sec-label mb8">Sección 7 · Blindaje Fiscal · Art. 80 LIG + Dictamen del Auditor · Análisis Normativo RT 54 / RT 17</div>
+<div class="card indigo-left mb28">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px">
+    <div>
+      <div class="sec-title indigo" style="margin-bottom:4px">Garantía de Neutralidad Fiscal</div>
+      <div style="font-size:12px;color:var(--text2);padding-left:14px">Los activos se trasladan a costo impositivo histórico sin impacto tributario en las continuadoras.</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span class="kpi-badge badge-indigo">PROPORCIONALIDAD &#10003;</span>
+      <span class="kpi-badge badge-indigo">CONTINUIDAD &#10003;</span>
+      <span class="kpi-badge badge-green">ART. 80 LIG &#10003;</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cp-grid">
+      <div class="cp">
+        <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Invariabilidad del costo impositivo</div><div class="cp-desc">Costo base $452.044.937. Sin impacto fiscal por el sinceramiento contable.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon indigo"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v4l3 2" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="cp-title">Permanencia de 24 meses</div><div class="cp-desc">Compromiso de mantenimiento de actividad y participación hasta julio 2028.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Traslado de atributos fiscales</div><div class="cp-desc">Quebranto, amortizaciones y bases trasladadas íntegramente a las continuadoras.</div></div>
+      </div>
+      <div class="cp">
+        <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="cp-title">Dación en pago reorganizativa</div><div class="cp-desc">Sin impuesto. Crédito Solares de Malabia 50/50 PAMA / VIFRAN conforme Art. 80.</div></div>
+      </div>
+    </div>
+    <div style="max-width:230px;align-self:center">
+      <div class="formula-box">
+        <div class="formula-eyebrow">Fórmula de Estabilidad</div>
+        <div class="formula-eq">&#931; PN<sub>Cont.</sub> = PN<sub>LIBER</sub></div>
+        <div class="formula-note">La reorganización es neutra: el PN Final es proporcional a la tenencia histórica (30/30/40).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Sección 9 (fusionado) · Dictamen Auditor RT 54 / RT 17 ─── -->
+<div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--accent2);margin:22px 0 10px">&#9632; Dictamen del Auditor · Análisis Normativo RT 54 / RT 17</div>
+<div class="card mb20">
+  <div class="sec-title">Checkpoints de cumplimiento normativo</div>
+  <div class="cp-grid">
+    <div class="cp">
+      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="cp-title">RT 54 · Costos financieros capitalizables</div><div class="cp-desc">Intereses de activos aptos en construcción. Pivote aplicado exclusivamente en PAMA.</div></div>
+    </div>
+    <div class="cp">
+      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="cp-title">RT 17 · Grandes reparaciones activables</div><div class="cp-desc">Mantenimiento extraordinario que extiende vida útil. Identificabilidad y recuperabilidad cumplidas.</div></div>
+    </div>
+    <div class="cp">
+      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="cp-title">Investigación y Desarrollo (I+D)</div><div class="cp-desc">Investigación → gasto del período. Desarrollo → activable solo con viabilidad técnica y económica.</div></div>
+    </div>
+    <div class="cp">
+      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="cp-title">Activos Intangibles controlados</div><div class="cp-desc">Gastos activables con control y beneficios futuros demostrados. No aplica en este proyecto.</div></div>
+    </div>
+    <div class="cp">
+      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="cp-title">Requisitos contables vigentes</div><div class="cp-desc">Identificabilidad &#10003; · Beneficio Futuro &#10003; · Valor Recuperable &#10003; — Todos cumplidos.</div></div>
+    </div>
+    <div class="cp">
+      <div class="cp-icon green"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#00a372" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="cp-title">Consistencia de valuación RT 54</div><div class="cp-desc">Costo original ajustado aplicado uniformemente en todas las sociedades escindidas.</div></div>
+    </div>
+  </div>
+  <div style="margin-top:14px;padding:11px 14px;background:rgba(0,195,137,.05);border:1px solid rgba(0,195,137,.18);border-radius:8px;font-size:11px;color:var(--text2)">
+    <strong style="color:var(--accent2)">Conclusión:</strong> Todos los checkpoints normativos están cumplidos. El proyecto es técnicamente correcto y fiscalmente neutro conforme al Art. 80 de la Ley de Impuesto a las Ganancias.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
      ESCISIÓN LIBER · BLOQUE UNIFICADO FINAL
      (Ruta Crítica + Embudo + Validaciones + Firma)
 ════════════════════════════════════════ -->
@@ -1714,30 +1740,47 @@ Se da pleno cumplimiento al requisito de continuidad de atributos fiscales del A
 
   </div>
 
-  <!-- ─── BLOQUE 4 · FIRMA (navy, cierre solemne) ─── -->
-  <div style="background:var(--navy);border-radius:12px;padding:24px 28px;position:relative;overflow:hidden">
-    <div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(0,195,137,.05)"></div>
-    <div style="position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
-      <div>
-        <div style="font-size:10px;color:rgba(255,255,255,.3);line-height:1.7;font-family:monospace">
-          Ref. normativa: RT 54 · RT 17 · RT 36 · RT 26 · RT 16 · Art. 80 LIG<br>
+  <!-- ─── BLOQUE 4 · FIRMA DE CIERRE (fondo negro, solemne) ─── -->
+  <div style="background:#0a0a0a;border-radius:12px;padding:32px 34px;position:relative;overflow:hidden">
+    <!-- Decoración de fondo -->
+    <div style="position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:rgba(0,195,137,.04)"></div>
+    <div style="position:absolute;bottom:-80px;left:-80px;width:200px;height:200px;border-radius:50%;background:rgba(201,168,76,.03)"></div>
+
+    <div style="position:relative;z-index:1">
+
+      <!-- Título superior del cierre -->
+      <div style="text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.28em;color:var(--accent);margin-bottom:10px">&#9733; Cierre del Dictamen</div>
+        <div style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:-.02em;margin-bottom:6px">Dictamen Finalizado · Proyectado</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.55;max-width:560px;margin:0 auto">Reorganización libre de impuestos bajo el régimen del Art. 80 LIG, con blindaje normativo verificado y cronograma operativo accionable hasta julio 2028.</div>
+      </div>
+
+      <!-- Tres badges de validación centradas -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:26px">
+        <span style="background:rgba(79,70,229,.18);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;color:#a5b4fc;letter-spacing:.08em;text-transform:uppercase">Proporcionalidad &#10003;</span>
+        <span style="background:rgba(79,70,229,.18);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;color:#a5b4fc;letter-spacing:.08em;text-transform:uppercase">Continuidad &#10003;</span>
+        <span style="background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase">RT 54 &#10003;</span>
+      </div>
+
+      <!-- Firma centralizada -->
+      <div style="text-align:center;margin-bottom:24px;padding:20px 24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;max-width:440px;margin-left:auto;margin-right:auto">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:12px">Firmado por</div>
+        <div style="font-size:17px;font-weight:800;color:#ffffff;letter-spacing:.02em;margin-bottom:6px;font-family:Georgia,serif">LIC. PABLO ÁGUILA</div>
+        <div style="width:50px;height:1px;background:var(--accent);margin:10px auto"></div>
+        <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.8;font-family:monospace">
+          T50 F17 · CPCECABA<br>
+          Administración de Empresas
+        </div>
+      </div>
+
+      <!-- Pie de referencia normativa -->
+      <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:18px;text-align:center">
+        <div style="font-size:9.5px;color:rgba(255,255,255,.35);line-height:1.8;font-family:monospace;letter-spacing:.03em">
+          <strong style="color:rgba(255,255,255,.55);font-weight:600">Ref. normativa:</strong> RT 54 · RT 17 · RT 36 · RT 26 · RT 16 · Art. 80 LIG · Art. 88 Inc. III LGS<br>
           Síntesis ejecutiva actualizada en tiempo real · 17 de Abril de 2026
         </div>
       </div>
-      <div style="text-align:right">
-        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-bottom:10px">Dictamen Finalizado</div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;justify-content:flex-end">
-          <span style="background:rgba(79,70,229,.2);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:3px 9px;font-size:10px;font-weight:700;color:#a5b4fc;letter-spacing:.04em">PROPORCIONALIDAD &#10003;</span>
-          <span style="background:rgba(79,70,229,.2);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:3px 9px;font-size:10px;font-weight:700;color:#a5b4fc;letter-spacing:.04em">CONTINUIDAD &#10003;</span>
-          <span style="background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.3);border-radius:6px;padding:3px 9px;font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.04em">RT 54 &#10003;</span>
-        </div>
-        <div style="font-size:11px;color:rgba(255,255,255,.38);line-height:1.9;font-family:monospace;text-align:right">
-          <strong style="color:rgba(255,255,255,.8);font-weight:600">LIC. PABLO ÁGUILA</strong><br>
-          Administración de Empresas<br>
-          T50 F17 · CPCECABA<br>
-          Reorganización libre de impuestos
-        </div>
-      </div>
+
     </div>
   </div>
 
