@@ -6,318 +6,324 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Dictamen Técnico · Escisión LIBER</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
 
-    *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    /* Tokens CEO */
+    --ink:#1a1a1a;
+    --ink-2:#444;
+    --ink-3:#666;
+    --ink-4:#999;
+    --rule:#e0ddd5;
+    --rule-2:#d3d1c7;
+    --paper:#ffffff;
+    --paper-2:#f7f5f0;
+    --paper-3:#f1efe8;
+    --orange:#E04E00;
+    --orange-bg:#FFF1EA;
+    --orange-border:#F5C9B0;
+    --info:#185FA5;
+    --info-bg:#E6F1FB;
+    --info-border:#B5D4F4;
+    --success:#1D9E75;
+    --success-bg:#E1F5EE;
+    --success-border:#9FE1CB;
+    --warning:#BA7517;
+    --warning-bg:#FAEEDA;
+    --warning-border:#FAC775;
+    --danger:#A32D2D;
+    --danger-bg:#FCEBEB;
+    --danger-border:#F7C1C1;
+    --purple-dark:#3C3489;
+    --purple-mid:#7F77DD;
+    --indigo:#3949AB;
+    --indigo-bg:#EEF0FA;
+    --gold:#BA7517;
+
+    /* Tokens de compatibilidad (mapeados) */
+    --navy:#1a1a1a;
+    --accent:#E04E00;
+    --accent2:#1D9E75;
+    --text:var(--ink);
+    --text2:var(--ink-2);
+    --text3:var(--ink-3);
+    --text4:var(--ink-4);
+    --surface:var(--paper);
+    --surface2:var(--paper-2);
+    --surface3:var(--paper-3);
+    --border:var(--rule);
+    --border2:var(--rule-2);
+  }
+  @media(prefers-color-scheme:dark){
     :root{
-      --navy:#0f1e35;
-      --accent:#00c389;
-      --accent2:#00a372;
-      --gold:#c9a84c;
-      --indigo:#4f46e5;
-      --text:#0f1e35;
-      --text2:#4a5568;
-      --text3:#8896a7;
-      --surface:#ffffff;
-      --surface2:#f4f7fb;
-      --surface3:#eaf0f8;
-      --border:#dde4ef;
-      --border2:#c8d4e4;
-      --danger:#e53e3e;
+      --ink:#e8e4dc;
+      --ink-2:#c0bcb4;
+      --ink-3:#908c84;
+      --ink-4:#6a665e;
+      --rule:#2a2a2a;
+      --rule-2:#333;
+      --paper:#141414;
+      --paper-2:#1c1c1c;
+      --paper-3:#181818;
+      --orange-bg:#2a1810;
+      --orange-border:#5a3520;
+      --info-bg:#0c2a4a;
+      --info-border:#1a4a7a;
+      --success-bg:#0f2a20;
+      --success-border:#1a5040;
+      --warning-bg:#2a1f0f;
+      --warning-border:#5a4520;
+      --danger-bg:#2a1414;
+      --danger-border:#5a2020;
+      --indigo-bg:#1a1f35;
     }
-    @media(prefers-color-scheme:dark){
-      :root{
-        --text:#e8edf4;--text2:#9dafc5;--text3:#5d7290;
-        --surface:#0f1e35;--surface2:#162844;--surface3:#1e3554;
-        --border:#1e3554;--border2:#243e60;--navy:#0a1625;
-      }
-    }
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--surface2);color:var(--text);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
-    .shell{max-width:1080px;margin:0 auto;padding:24px 20px 56px}
+  }
 
-    /* ─── HEADER ─── */
-    .hdr{background:var(--navy);border-radius:16px;padding:36px 40px;margin-bottom:28px;position:relative;overflow:hidden}
-    .hdr::before{content:"";position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(0,195,137,.07)}
-    .hdr::after{content:"";position:absolute;bottom:-80px;right:80px;width:180px;height:180px;border-radius:50%;background:rgba(201,168,76,.05)}
-    .hdr-eyebrow{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
-    .hdr-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px}
-    .hdr-title{font-size:26px;font-weight:800;color:#ffffff;letter-spacing:-.03em;margin-bottom:6px}
-    .hdr-sub{font-size:12px;color:rgba(255,255,255,.4)}
-    .hdr-date-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 20px;text-align:right;flex-shrink:0}
-    .hdr-date-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-    .hdr-date-val{font-size:13px;font-weight:600;color:#ffffff}
-    .hdr-date-status{font-size:10px;color:var(--accent);font-weight:500;margin-top:5px}
-    .hdr-badge{background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.3);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:600;color:var(--accent);letter-spacing:.08em;display:inline-block;margin-top:14px}
-    .hdr-meta{display:flex;gap:24px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap}
-    .hdr-meta-item{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.38)}
-    .hdr-meta-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+  body{
+    font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;
+    color:var(--ink);
+    background:var(--paper-3);
+    font-size:13px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:1rem;
+  }
 
-    /* ─── LABELS ─── */
-    .sec-label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;padding-left:2px}
-    .sec-title{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.01em;display:flex;align-items:center;gap:10px;margin-bottom:16px}
-    .sec-title::before{content:"";width:4px;height:18px;background:var(--accent);border-radius:3px;flex-shrink:0}
-    .sec-title.indigo::before{background:var(--indigo)}
+  /* Tabular numerals · global para alineación de números en todas las celdas y elementos mono */
+  .num,td.num,th.num,.mono,code,pre,[class*="-val"],.bar-val,.bar-pct,.cal-kpi-val,.alert-kpi-val,.hdr-date-val,.sim-col-num,.sim-ctrl-val,.sim-sub-val,.ctrl-val,.wfall-val,.inmueble-total-val,.pg-big,.pg-counter-big,.pg-small{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
 
-    /* ─── KPI ─── */
-    .kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:28px}
-    .kpi-grid-5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:28px}
-    .kpi{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden}
-    .kpi::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0}
-    .kpi.gold::after{background:var(--gold)}
-    .kpi.indigo-card::after{background:var(--indigo)}
-    .kpi.navy-card{background:var(--navy);border-color:transparent}
-    .kpi.navy-card::after{background:var(--accent)}
-    .kpi.green-card{background:rgba(0,195,137,.06);border-color:rgba(0,195,137,.25)}
-    .kpi.green-card::after{background:var(--accent)}
-    .kpi-label{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
-    .kpi.navy-card .kpi-label{color:rgba(255,255,255,.38)}
-    .kpi-value{font-size:19px;font-weight:800;color:var(--text);letter-spacing:-.03em;margin-bottom:4px;font-variant-numeric:tabular-nums}
-    .kpi.navy-card .kpi-value{color:#ffffff}
-    .kpi.green-card .kpi-value{color:var(--accent2)}
-    .kpi-sub{font-size:10px;color:var(--text3)}
-    .kpi.navy-card .kpi-sub{color:rgba(255,255,255,.32)}
-    .kpi-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;margin-top:6px}
-    .badge-green{background:rgba(0,195,137,.1);color:var(--accent2)}
-    .badge-gold{background:rgba(201,168,76,.1);color:var(--gold)}
-    .badge-indigo{background:rgba(79,70,229,.1);color:var(--indigo)}
-    .badge-danger{background:rgba(229,62,62,.08);color:var(--danger)}
+    .shell,main{max-width:920px;margin:0 auto;background:var(--paper);padding:2rem 2.5rem;border:0.5px solid var(--rule);box-shadow:0 2px 20px rgba(0,0,0,.03)}
 
-    /* ─── CARDS ─── */
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px}
-    .card-sm{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
-    .card.indigo-left{border-left:5px solid var(--indigo);border-radius:0 12px 12px 12px;padding-left:28px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .mb8{margin-bottom:8px}
-    .mb20{margin-bottom:20px}
-    .mb28{margin-bottom:28px}
-    .row{display:flex;gap:16px}
-    .row>*{flex:1;min-width:0}
+  .mb8{margin-bottom:12px}
+  .mb20{margin-bottom:1.5rem}
+  .mb28{margin-bottom:2rem}
+  .row{display:flex;gap:1rem;flex-wrap:wrap}
 
-    /* ─── TABLES ─── */
-    table{width:100%;border-collapse:separate;border-spacing:0}
-    thead tr th{background:var(--surface2);font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);padding:10px 14px;border-bottom:2px solid var(--surface3)}
-    thead tr th:first-child{border-radius:8px 0 0 0}
-    thead tr th:last-child{border-radius:0 8px 0 0}
-    tbody tr td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text)}
-    tbody tr:last-child td{border-bottom:none}
-    tbody tr:hover td{background:var(--surface3)}
-    td.num{text-align:right;font-variant-numeric:tabular-nums;font-size:12px;color:var(--text2)}
-    td.total{font-weight:700;color:var(--text)}
-    .row-dark{background:var(--navy)!important}
-    .row-dark td{color:#ffffff!important;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:none!important}
-    .row-dark td.num{color:rgba(255,255,255,.8)!important}
-    .row-dark td.num.accent{color:var(--accent)!important}
-    .row-accent{background:rgba(0,195,137,.04)!important}
-    .row-accent td{color:var(--accent2)!important;font-weight:600}
+  /* Header institucional sobrio */
+  .hdr{background:var(--paper);color:var(--ink);padding:2.5rem 2.5rem 2rem;margin-bottom:2.5rem;position:relative;border-bottom:1.5px solid var(--ink);border-radius:0}
+  .hdr::before,.hdr::after{display:none}
+  .hdr-eyebrow{font-size:10px;font-weight:500;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;text-align:center}
+  .hdr-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+  .hdr-title{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:30px;font-weight:400;color:var(--ink);letter-spacing:-.015em;margin-bottom:.4rem;line-height:1.1}
+  .hdr-sub{font-size:12px;color:var(--ink-3);letter-spacing:.05em;line-height:1.5}
+  .hdr-date-box{background:var(--paper-2);border:0.5px solid var(--rule);border-radius:6px;padding:14px 18px;text-align:right;flex-shrink:0}
+  .hdr-date-label{font-size:9px;font-weight:500;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+  .hdr-date-val{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)}
+  .hdr-date-status{font-size:10px;color:var(--orange);font-weight:500;margin-top:4px}
+  .hdr-badge{background:var(--orange-bg);border:0.5px solid var(--orange);border-radius:4px;padding:4px 10px;font-size:10px;font-weight:500;color:var(--orange);letter-spacing:.1em;display:inline-block;margin-top:10px;text-transform:uppercase}
+  .hdr-meta{display:flex;gap:24px;margin-top:1.5rem;padding-top:1rem;border-top:0.5px solid var(--rule);flex-wrap:wrap}
+  .hdr-meta-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-3)}
+  .hdr-meta-dot{width:5px;height:5px;border-radius:50%;background:var(--orange);opacity:.8}
 
-    /* ─── INMUEBLES ─── */
-    .inmueble-tag{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.2);border-radius:5px;padding:3px 8px}
-    .inmueble-name{font-size:13px;font-weight:700;color:var(--text);margin:10px 0}
-    .inmueble-list{list-style:none}
-    .inmueble-list li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:11.5px}
-    .inmueble-list li:last-child{border-bottom:none}
-    .inmueble-list .prop{color:var(--text2)}
-    .inmueble-list .val{font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
-    .inmueble-footer{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-    .inmueble-total-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:600}
-    .inmueble-total-val{font-size:15px;font-weight:700;color:var(--accent2)}
+  /* ═══ ALERT CALENDAR (banda de vencimientos críticos arriba del documento) ═══ */
+  .alert-calendar{background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:2rem;position:relative}
+  .alert-calendar::before{content:"";position:absolute;top:-1.5px;left:-1.5px;right:-1.5px;height:3px;background:var(--orange);border-radius:8px 8px 0 0}
+  .alert-calendar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;padding-top:4px}
+  .alert-calendar-label{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+  .alert-calendar-title{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:400;color:var(--ink);letter-spacing:-.01em;line-height:1.25}
+  .alert-calendar-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--paper-2);padding:4px 10px;border-radius:3px;border:0.5px solid var(--rule)}
+  .alert-calendar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .alert-kpi{background:var(--paper-2);border:0.5px solid var(--rule);border-radius:6px;padding:14px 16px}
+  .alert-kpi.critico{background:var(--danger-bg);border-color:var(--danger-border);border-left:3px solid var(--danger)}
+  .alert-kpi-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:6px}
+  .alert-kpi.critico .alert-kpi-label{color:var(--danger)}
+  .alert-kpi-val{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:400;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;margin-bottom:3px}
+  .alert-kpi.critico .alert-kpi-val{color:var(--danger)}
+  .alert-kpi-sub{font-size:11px;color:var(--ink-3);margin-top:4px;line-height:1.4}
+  .alert-kpi-date{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink-2);font-weight:500}
+  .alert-kpi.critico .alert-kpi-date{color:var(--danger)}
 
-    /* ─── CONTROLES ─── */
-    .ctrl-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px}
-    .ctrl-label{font-size:10px;font-weight:700;color:var(--text3);margin-bottom:7px;text-transform:uppercase;letter-spacing:.08em}
-    .ctrl-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-    .ctrl-row input[type=range]{flex:1;-webkit-appearance:none;height:7px;background:var(--surface3);border-radius:10px;outline:none}
-    .ctrl-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid white;box-shadow:0 3px 8px rgba(0,195,137,.35)}
-    .ctrl-val{font-size:14px;font-weight:800;color:var(--accent2);min-width:130px;text-align:right;font-variant-numeric:tabular-nums}
-    .ctrl-input{width:100%;border:1px solid var(--border2);border-radius:7px;padding:7px 10px;text-align:center;font-size:12px;font-weight:600;color:var(--text);background:var(--surface2);font-family:inherit}
-    .ctrl-input:focus{outline:none;border-color:var(--accent)}
+  /* Sección labels */
+  .sec-label{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;letter-spacing:-.01em;color:var(--ink);margin-bottom:1rem;line-height:1.2;padding-top:1.5rem;border-top:0.5px solid var(--rule)}
+  .sec-title{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;color:var(--ink);letter-spacing:-.005em;margin-bottom:6px}
+  .sec-title.indigo{color:var(--info)}
+  .sec-title.gold{color:var(--orange)}
+  .sec-title.green{color:var(--success)}
 
-    /* status box dinámico */
-    .status-box{padding:16px 18px;border-radius:10px;border:2px solid;transition:all .4s ease}
-    .status-box.neutral{background:var(--surface2);border-color:var(--border2)}
-    .status-box.positive{background:rgba(0,195,137,.07);border-color:rgba(0,195,137,.3)}
-    .status-box.negative{background:rgba(229,62,62,.06);border-color:rgba(229,62,62,.25)}
-    .sb-eyebrow{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:5px}
-    .sb-label{font-size:11.5px;font-weight:700;margin-bottom:4px}
-    .sb-label.positive{color:var(--accent2)}
-    .sb-label.negative{color:var(--danger)}
-    .sb-label.neutral{color:var(--text2)}
-    .sb-val{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-    .sb-val.positive{color:var(--accent2)}
-    .sb-val.negative{color:var(--danger)}
-    .sb-val.neutral{color:var(--text)}
+  /* Section dividers */
+  section,.section{margin-bottom:2.5rem;padding-bottom:1.5rem}
 
-    /* panel dación oscuro */
-    .dacion-panel{background:var(--navy);border-radius:10px;padding:22px 24px;position:relative;overflow:hidden}
-    .dacion-panel::after{content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(0,195,137,.08)}
-    .dacion-eyebrow{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:14px}
-    .dacion-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
-    .dacion-item-label{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.38);margin-bottom:4px}
-    .dacion-val-lg{font-size:22px;font-weight:800;color:#ffffff;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-    .dacion-val-sm{font-size:15px;font-weight:600;color:rgba(255,255,255,.7);font-variant-numeric:tabular-nums}
+  /* Cards */
+  .card{background:var(--paper);border:0.5px solid var(--rule);border-radius:8px;padding:1.5rem;box-shadow:none}
+  .card-sm{background:var(--paper);border:0.5px solid var(--rule);border-radius:6px;padding:1rem 1.15rem}
+  .card.indigo-left{border-left:3px solid var(--info);border-radius:0 8px 8px 0;padding-left:1.75rem}
 
-    /* impact boxes */
-    .impact-box{padding:14px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:12px}
-    .impact-box-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px}
-    .impact-box-val{font-size:15px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+  /* KPI badges */
+  .kpi-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:3px 8px;border-radius:3px;font-weight:500;margin-top:4px;letter-spacing:.08em;text-transform:uppercase;border:0.5px solid}
+  .badge-green{background:var(--success-bg);color:var(--success);border-color:var(--success-border)}
+  .badge-gold{background:var(--orange-bg);color:var(--orange);border-color:var(--orange-border)}
+  .badge-indigo{background:var(--info-bg);color:var(--info);border-color:var(--info-border)}
+  .badge-red{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-border)}
 
-    /* result rows */
-    .result-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-radius:8px;margin-bottom:6px;font-size:12px}
-    .result-row.highlight{background:rgba(0,195,137,.07);border:1px solid rgba(0,195,137,.18)}
-    .result-row.warn{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18)}
-    .result-label{color:var(--text2)}
-    .result-val{font-weight:700;font-variant-numeric:tabular-nums}
-    .result-val.green{color:var(--accent2)}
-    .result-val.gold{color:var(--gold)}
+  /* Grid */
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 
-    /* ─── BARS ─── */
-    .bar-row{margin-bottom:14px}
-    .bar-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px}
-    .bar-name{color:var(--text2)}
-    .bar-pct{font-weight:600;color:var(--text)}
-    .bar-track{height:7px;background:var(--surface3);border-radius:4px;overflow:hidden}
-    .bar-fill{height:100%;border-radius:4px;background:var(--accent)}
-    .bar-fill.gold{background:var(--gold)}
+  /* Tablas sobrias */
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1.5px solid var(--ink);background:var(--paper-2)}
+  th.num,td.num{text-align:right;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+  td{padding:9px 12px;border-bottom:0.5px solid var(--rule);font-size:12px}
+  tr.row-dark td{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-weight:500;background:var(--paper-2)}
 
-    /* ─── CHECKPOINTS ─── */
-    .cp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .cp{display:flex;align-items:flex-start;gap:10px;padding:13px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)}
-    .cp-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .cp-icon.green{background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.3)}
-    .cp-icon.indigo{background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.25)}
-    .cp-icon svg{width:12px;height:12px}
-    .cp-title{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:2px}
-    .cp-desc{font-size:10.5px;color:var(--text3);line-height:1.45}
+  /* Inmuebles (Sección 3) */
+  .inmueble-tag{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--success);background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:3px;padding:3px 8px;display:inline-block}
+  .inmueble-name{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;color:var(--ink);margin:8px 0 10px}
+  .inmueble-list{list-style:none}
+  .inmueble-list li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:0.5px solid var(--rule);font-size:11.5px}
+  .inmueble-list li:last-child{border-bottom:none}
+  .inmueble-list .prop{color:var(--ink-3)}
+  .inmueble-list .val{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .inmueble-footer{margin-top:10px;padding-top:10px;border-top:0.5px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+  .inmueble-total-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:500}
+  .inmueble-total-val{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
 
-    /* ─── FORMULA ─── */
-    .formula-box{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
-    .formula-eyebrow{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:10px}
-    .formula-eq{font-size:17px;font-weight:700;color:var(--text);font-style:italic;padding:10px 0}
-    .formula-note{font-size:10px;color:var(--text3);line-height:1.5;margin-top:8px}
+  /* Number formatting helpers */
+  .num{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+  .num.big{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:400;letter-spacing:-.01em}
 
-    /* ═══════════════════════════════════════
-       SECCIÓN 6 · HITOS OPERATIVOS
-       Respeta el sistema de diseño madre
-    ════════════════════════════════════════ */
-    .progress-global{background:var(--navy);border-radius:12px;padding:22px 24px;margin-bottom:18px;position:relative;overflow:hidden}
-    .progress-global::after{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(0,195,137,.06)}
-    .pg-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;position:relative;z-index:1}
-    .pg-title{font-size:13px;font-weight:700;color:#ffffff;letter-spacing:-.01em}
-    .pg-sub{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
-    .pg-counter{display:flex;align-items:baseline;gap:6px}
-    .pg-counter-big{font-size:28px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
-    .pg-counter-small{font-size:12px;color:rgba(255,255,255,.45);font-weight:600}
-    .pg-track{position:relative;z-index:1;height:10px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
-    .pg-fill{height:100%;background:linear-gradient(90deg,var(--accent) 0%,var(--accent2) 100%);border-radius:6px;transition:width .4s ease;width:0%}
-    .pg-meta{display:flex;justify-content:space-between;margin-top:10px;font-size:10px;color:rgba(255,255,255,.35);font-weight:500;position:relative;z-index:1}
+  /* Checkpoints (Sección 7 · Blindaje) */
+  .cp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .cp{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--paper);border-radius:6px;border:0.5px solid var(--rule)}
+  .cp-icon{width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:3px;border:0.5px solid}
+  .cp-icon.green{background:var(--success-bg);border-color:var(--success)}
+  .cp-icon.indigo{background:var(--info-bg);border-color:var(--info)}
+  .cp-title{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:3px}
+  .cp-desc{font-size:11px;color:var(--ink-3);line-height:1.5}
 
-    .hito-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:14px;position:relative;overflow:hidden;transition:border-color .2s ease}
-    .hito-card:hover{border-color:var(--border2)}
-    .hito-card.hito-A{border-left:5px solid var(--danger);border-radius:0 12px 12px 12px}
-    .hito-card.hito-B{border-left:5px solid var(--gold);border-radius:0 12px 12px 12px}
-    .hito-card.hito-C{border-left:5px solid var(--accent);border-radius:0 12px 12px 12px}
-    .hito-card.hito-D{border-left:5px solid var(--indigo);border-radius:0 12px 12px 12px}
-    .hito-card.hito-E{border-left:5px solid #1e293b;border-radius:0 12px 12px 12px}
+  /* Hitos PMO */
+  .hito-card{background:var(--paper);border:0.5px solid var(--rule);border-radius:6px;padding:1.15rem 1.3rem;margin-bottom:0.85rem;border-left-width:3px;border-left-style:solid}
+  .hito-card.hito-A{border-left-color:var(--danger)}
+  .hito-card.hito-B{border-left-color:var(--warning)}
+  .hito-card.hito-C{border-left-color:var(--success)}
+  .hito-card.hito-D{border-left-color:var(--info)}
+  .hito-card.hito-E{border-left-color:var(--ink)}
 
-    .hito-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:14px}
-    .hito-title{font-size:14px;font-weight:700;color:var(--text);letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
-    .hito-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-    .hito-dot.A{background:var(--danger)}
-    .hito-dot.B{background:var(--gold)}
-    .hito-dot.C{background:var(--accent)}
-    .hito-dot.D{background:var(--indigo)}
-    .hito-dot.E{background:#1e293b}
-    .hito-timing{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
-    .hito-progress{display:flex;align-items:center;gap:8px}
-    .hito-progress-count{font-size:11px;font-weight:700;color:var(--text2);font-variant-numeric:tabular-nums;min-width:35px;text-align:right}
-    .hito-progress-track{width:80px;height:5px;background:var(--surface3);border-radius:3px;overflow:hidden}
-    .hito-progress-fill{height:100%;border-radius:3px;transition:width .3s ease;width:0%}
-    .hito-progress-fill.A{background:var(--danger)}
-    .hito-progress-fill.B{background:var(--gold)}
-    .hito-progress-fill.C{background:var(--accent)}
-    .hito-progress-fill.D{background:var(--indigo)}
-    .hito-progress-fill.E{background:#1e293b}
+  .hito-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+  .hito-title{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .hito-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .hito-dot.A{background:var(--danger)}
+  .hito-dot.B{background:var(--warning)}
+  .hito-dot.C{background:var(--success)}
+  .hito-dot.D{background:var(--info)}
+  .hito-dot.E{background:var(--ink)}
+  .hito-timing{font-size:10px;font-weight:500;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
 
-    .check-list{list-style:none;padding:0;margin:0}
-    .check-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;transition:background .15s ease;cursor:pointer}
-    .check-list li:hover{background:var(--surface2)}
-    .check-list li.done{background:rgba(0,195,137,.04)}
-    .check-list input[type=checkbox]{-webkit-appearance:none;appearance:none;width:18px;height:18px;border:2px solid var(--border2);border-radius:5px;cursor:pointer;position:relative;flex-shrink:0;margin-top:1px;background:var(--surface);transition:all .15s ease}
-    .check-list input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
-    .check-list input[type=checkbox]:checked::after{content:"";position:absolute;top:1px;left:5px;width:5px;height:10px;border:solid white;border-width:0 2px 2px 0;transform:rotate(45deg)}
-    .check-list label{flex:1;font-size:12px;color:var(--text);cursor:pointer;line-height:1.5}
-    .check-list li.done label{color:var(--text3);text-decoration:line-through}
-    .check-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 6px;border-radius:4px;flex-shrink:0;margin-top:2px}
-    .check-tag.critico{background:rgba(229,62,62,.1);color:var(--danger)}
-    .check-tag.obligatorio{background:rgba(201,168,76,.1);color:var(--gold)}
+  .hito-progress{display:flex;align-items:center;gap:8px}
+  .hito-progress-count{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;color:var(--ink-2);font-variant-numeric:tabular-nums;min-width:35px;text-align:right}
+  .hito-progress-track{width:80px;height:4px;background:var(--paper-2);border-radius:2px;overflow:hidden;border:0.5px solid var(--rule)}
+  .hito-progress-fill{height:100%;transition:width .3s ease;width:0%}
+  .hito-progress-fill.A{background:var(--danger)}
+  .hito-progress-fill.B{background:var(--warning)}
+  .hito-progress-fill.C{background:var(--success)}
+  .hito-progress-fill.D{background:var(--info)}
+  .hito-progress-fill.E{background:var(--ink)}
 
-    /* Hito E ampliado */
-    .hito-e-expand{margin-top:16px;padding-top:16px;border-top:1px dashed var(--border2)}
-    .expand-section{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:12px}
-    .expand-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-    .expand-title-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--danger);background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.2);border-radius:4px;padding:2px 7px}
-    .expand-body{font-size:11.5px;color:var(--text2);line-height:1.6}
-    .expand-body p{margin-bottom:8px}
-    .expand-body strong{color:var(--text)}
-    .expand-body ul{list-style:none;padding:0;margin:8px 0}
-    .expand-body ul li{padding:5px 0 5px 18px;position:relative;font-size:11px}
-    .expand-body ul li::before{content:"▸";position:absolute;left:4px;color:var(--accent);font-weight:700}
+  .hito-list{list-style:none;padding:.5rem 0}
+  .hito-list li{display:flex;align-items:flex-start;gap:11px;padding:.55rem .15rem;cursor:pointer;border-radius:4px;transition:background .15s}
+  .hito-list li:hover{background:var(--paper-2)}
+  .hito-list li.done{opacity:.55}
+  .hito-list input[type=checkbox]{appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid var(--ink-3);background:var(--paper);cursor:pointer;margin-top:2px;flex-shrink:0;position:relative;border-radius:3px;transition:all .15s}
+  .hito-list input[type=checkbox]:checked{background:var(--success);border-color:var(--success)}
+  .hito-list input[type=checkbox]:checked::after{content:"";position:absolute;top:1px;left:4px;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .hito-list label{flex:1;font-size:12.5px;cursor:pointer;line-height:1.5;color:var(--ink-2)}
+  .hito-list li.done label{text-decoration:line-through}
 
-    .modelo-nota{background:var(--navy);border-radius:10px;padding:20px 22px;margin-top:14px;position:relative;overflow:hidden}
-    .modelo-nota::after{content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(0,195,137,.06)}
-    .modelo-eyebrow{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px;position:relative;z-index:1}
-    .modelo-body{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:11px;line-height:1.75;color:rgba(255,255,255,.78);white-space:pre-wrap;position:relative;z-index:1}
-    .modelo-body strong{color:#ffffff;font-weight:600}
-    .modelo-copy{position:absolute;top:16px;right:18px;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.3);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:600;color:var(--accent);cursor:pointer;z-index:2;font-family:inherit;letter-spacing:.04em;transition:all .15s ease}
-    .modelo-copy:hover{background:rgba(0,195,137,.25)}
+  .hito-tag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;font-weight:500;border:0.5px solid}
+  .hito-tag.critico{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-border)}
+  .hito-tag.obligatorio{background:var(--warning-bg);color:var(--warning);border-color:var(--warning-border)}
 
-    /* ─── PMO ─── */
-    .pmo{background:var(--navy);border-radius:14px;padding:32px;margin-top:20px;position:relative;overflow:hidden}
-    .pmo::before{content:"";position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(0,195,137,.05)}
-    .pmo-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
-    .pmo-title{font-size:18px;font-weight:800;color:#ffffff;letter-spacing:-.02em;margin-bottom:4px}
-    .pmo-sub{font-size:11px;color:rgba(255,255,255,.32)}
-    .pmo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:28px}
-    .pmo-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px}
-    .pmo-card-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.38);margin-bottom:12px}
-    .pmo-check{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.6);padding:4px 0}
-    .pmo-check-dot{width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.2);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .pmo-check-dot svg{width:8px;height:8px}
-    .pmo-stat{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:rgba(255,255,255,.45);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-    .pmo-stat:last-child{border-bottom:none}
-    .pmo-stat-val{font-weight:700;font-variant-numeric:tabular-nums}
-    .pmo-stat-val.white{color:#ffffff}
-    .pmo-stat-val.green{color:var(--accent)}
-    .pmo-status{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--accent);background:rgba(0,195,137,.1);border:1px solid rgba(0,195,137,.2);border-radius:5px;padding:3px 9px;margin-top:10px}
-    .pmo-status-dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  /* PMO Dashboard */
+  .pmo{background:var(--ink);color:#fff;border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:1rem;position:relative;overflow:hidden}
+  .pmo::before,.pmo::after{display:none}
+  .pg-title{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:#fff;font-weight:400}
+  .pg-sub{font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.12em;margin-top:3px;font-weight:500}
+  .pg-count{display:flex;align-items:baseline;gap:6px}
+  .pg-big{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;color:var(--orange);font-weight:400;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+  .pg-small{font-size:11px;color:rgba(255,255,255,.4);font-weight:500}
+  .pg-track{height:6px;background:rgba(255,255,255,.08);overflow:hidden;border-radius:3px}
+  .pg-fill{height:100%;background:var(--orange);transition:width .4s;width:0;border-radius:3px}
+  .pg-meta{display:flex;justify-content:space-between;margin-top:.75rem;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;font-weight:500}
 
-    /* firma */
-    .pmo-footer{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
-    .firma-eyebrow{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
-    .firma-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-    .firma-badge{background:rgba(79,70,229,.2);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:3px 9px;font-size:10px;font-weight:700;color:#a5b4fc;letter-spacing:.04em}
-    .firma-badge.green{background:rgba(0,195,137,.15);border-color:rgba(0,195,137,.3);color:var(--accent)}
-    .firma-text{font-size:11px;color:rgba(255,255,255,.38);line-height:1.9;font-family:monospace}
-    .firma-text strong{color:rgba(255,255,255,.72);font-weight:600}
-    .pmo-kpis{display:flex;gap:20px;flex-wrap:wrap}
-    .pmo-kpi{text-align:center}
-    .pmo-kpi-val{font-size:20px;font-weight:800;color:#ffffff;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-    .pmo-kpi-label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-top:3px}
+  /* Modelo nota RG 1128 */
+  .modelo-nota{background:var(--paper-2);border:0.5px solid var(--rule);border-radius:6px;padding:1rem 1.2rem;margin-top:12px}
+  .modelo-nota-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .modelo-nota-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);font-weight:500}
+  .modelo-copy{background:transparent;border:0.5px solid var(--orange);color:var(--orange);padding:4px 10px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:inherit;font-weight:500;border-radius:3px;transition:all .15s}
+  .modelo-copy:hover{background:var(--orange);color:#fff}
+  .modelo-body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.7;color:var(--ink-2);white-space:pre-wrap}
+  .modelo-body strong{color:var(--ink);font-weight:500}
 
-    @media(max-width:700px){
-      .kpi-grid,.kpi-grid-5{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .grid-3,.pmo-grid,.cp-grid{grid-template-columns:1fr}
-      .row{flex-direction:column}
-      .hdr{padding:22px 20px}
-      .hdr-top{flex-direction:column}
-      .hdr-meta{display:none}
-      .dacion-row{flex-direction:column}
-      .hito-head{flex-direction:column;align-items:stretch}
-      .hito-progress{justify-content:space-between}
-      .modelo-copy{position:static;margin-bottom:10px;display:inline-block}
-    }
-  </style>
+  /* Fases cronograma */
+  .fase{padding:1.35rem 0;border-bottom:0.5px solid var(--rule)}
+  .fase:first-child{padding-top:.5rem}
+  .fase:last-child{border-bottom:none}
+
+  .fase-badge{width:54px;flex-shrink:0;text-align:center;padding:6px 4px;border-radius:4px;border:0.5px solid}
+  .fase-badge.dorado,.fase-badge.amber{background:var(--warning-bg);border-color:var(--warning)}
+  .fase-badge.verde,.fase-badge.green{background:var(--success-bg);border-color:var(--success)}
+  .fase-badge.indigo{background:var(--info-bg);border-color:var(--info)}
+  .fase-badge.rojo,.fase-badge.red{background:var(--danger-bg);border-color:var(--danger)}
+  .fase-badge-label{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.1em}
+  .fase-badge-num{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;line-height:1}
+  .fase-badge.dorado .fase-badge-label,.fase-badge.dorado .fase-badge-num{color:var(--warning)}
+  .fase-badge.verde .fase-badge-label,.fase-badge.verde .fase-badge-num{color:var(--success)}
+  .fase-badge.indigo .fase-badge-label,.fase-badge.indigo .fase-badge-num{color:var(--info)}
+  .fase-badge.rojo .fase-badge-label,.fase-badge.rojo .fase-badge-num{color:var(--danger)}
+
+  .fase-pill{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;font-weight:500;border-radius:3px;border:0.5px solid}
+  .fase-pill.dorado{background:var(--warning-bg);color:var(--warning);border-color:var(--warning-border)}
+  .fase-pill.verde{background:var(--success-bg);color:var(--success);border-color:var(--success-border)}
+  .fase-pill.indigo{background:var(--info-bg);color:var(--info);border-color:var(--info-border)}
+  .fase-pill.rojo{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-border)}
+
+  /* Sliders y controles (Sección 4) */
+  .ctrl-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:6px}
+  .ctrl-row{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .ctrl-val{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;min-width:140px;text-align:right}
+  input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:4px;background:var(--rule-2);outline:none;border-radius:2px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;background:var(--orange);cursor:pointer;border-radius:50%;border:0}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--orange);cursor:pointer;border:0;border-radius:50%}
+
+  /* Escenario banner */
+  #escenario-banner{padding:10px 14px;background:var(--paper-2);border:0.5px solid var(--rule);border-radius:4px;font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+  /* Textos utilitarios */
+  em{font-style:italic;color:var(--ink-2)}
+  strong{font-weight:500}
+  code,.mono{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+
+  /* Utilities preservadas */
+  .text-green,.text-accent{color:var(--success)}
+  .text-gold{color:var(--orange)}
+  .text-danger{color:var(--danger)}
+  .text-indigo{color:var(--info)}
+
+  /* Dashed separators */
+  hr,.divider{border:none;border-top:0.5px solid var(--rule);margin:1rem 0}
+
+  /* Responsive */
+  @media(max-width:740px){
+    body{padding:.5rem}
+    .shell,main{padding:1.5rem 1.25rem}
+    .hdr{padding:1.75rem 1.5rem}
+    .hdr-title{font-size:22px}
+    .hdr-meta{gap:1rem;font-size:10px}
+    .hdr-top{flex-direction:column}
+    .grid-3,.grid-2{grid-template-columns:1fr}
+    .cp-grid{grid-template-columns:1fr}
+    .sec-label{font-size:17px}
+    .sec-head{gap:.5rem}
+    table{font-size:11px}
+    th,td{padding:7px 6px}
+    .ctrl-row{flex-direction:column;align-items:stretch}
+    .ctrl-val{text-align:left;min-width:0}
+    .alert-calendar{padding:1rem 1.15rem}
+    .alert-calendar-title{font-size:15px}
+    .alert-calendar-grid{grid-template-columns:1fr;gap:8px}
+    .alert-kpi-val{font-size:24px}
+  }
+</style>
 </head>
 <body>
 <div class="shell">
@@ -325,9 +331,9 @@
      HEADER
 ════════════════════════════════════════ -->
 <!-- ═══════════════════════════════════════
-     HEADER (fondo negro · contraste blanco)
+     HEADER (paper blanco · coherente con el sistema CEO)
 ════════════════════════════════════════ -->
-<div class="hdr" style="background:#0a0a0a">
+<div class="hdr">
   <div class="hdr-eyebrow">Dictamen de Reorganización Corporativa</div>
 
   <!-- Título principal + status -->
@@ -335,9 +341,9 @@
     <div>
       <div class="hdr-title">Escisión-Fusión LIBER S.A.I.C.I.</div>
       <div class="hdr-sub">Tratamiento Integral: RT 54 · RT 17 · Art. 80 LIG · Sinceramiento de Activos</div>
-      <div class="hdr-badge" style="background:rgba(229,62,62,.15);border-color:rgba(229,62,62,.35);color:#ff9999;margin-top:10px">NO APROBADO</div>
+      <div class="hdr-badge" style="background:var(--danger-bg);border-color:var(--danger);color:var(--danger);margin-top:10px">NO APROBADO</div>
     </div>
-    <div class="hdr-date-box" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
+    <div class="hdr-date-box">
       <div class="hdr-date-label">Fecha de Emisión</div>
       <div class="hdr-date-val">17 de Abril, 2026</div>
       <div class="hdr-date-status">&#11044; En Proceso Técnico</div>
@@ -348,26 +354,56 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:1">
 
     <!-- Balance previo rechazado -->
-    <div style="background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.25);border-left:4px solid var(--danger);border-radius:10px;padding:14px 16px">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#ff9999;margin-bottom:6px">&#9888; Balance Previo — Rechazado</div>
-      <div style="font-size:13px;font-weight:700;color:#ffffff;margin-bottom:3px">Escisión-Fusión LIBER S.A.I.C.I.</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.5">Balance de corte <strong style="color:#ffffff">30/11/2025</strong> · <span style="color:#ff9999;font-weight:600">NO Aprobado</span></div>
+    <div style="background:var(--danger-bg);border:0.5px solid var(--danger-border);border-left:3px solid var(--danger);border-radius:6px;padding:14px 16px">
+      <div style="font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--danger);margin-bottom:6px">&#9888; Balance Previo — Rechazado</div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px">Escisión-Fusión LIBER S.A.I.C.I.</div>
+      <div style="font-size:11px;color:var(--ink-3);line-height:1.5">Balance de corte <strong style="color:var(--ink);font-weight:500">30/11/2025</strong> · <span style="color:var(--danger);font-weight:500">NO Aprobado</span></div>
     </div>
 
     <!-- Nueva fecha propuesta -->
-    <div style="background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.3);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:6px">&#9656; Nueva Fecha Propuesta</div>
-      <div style="font-size:13px;font-weight:700;color:#ffffff;margin-bottom:3px">Escisión-Fusión LIBER S.A.I.C.I.</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.5">Vencimiento <strong style="color:#ffffff">31/07/2026</strong> · <span style="color:var(--accent);font-weight:600">Proyectado</span></div>
+    <div style="background:var(--success-bg);border:0.5px solid var(--success-border);border-left:3px solid var(--success);border-radius:6px;padding:14px 16px">
+      <div style="font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--success);margin-bottom:6px">&#9656; Nueva Fecha Propuesta</div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px">Escisión-Fusión LIBER S.A.I.C.I.</div>
+      <div style="font-size:11px;color:var(--ink-3);line-height:1.5">Vencimiento <strong style="color:var(--ink);font-weight:500">31/07/2026</strong> · <span style="color:var(--success);font-weight:500">Proyectado</span></div>
     </div>
 
   </div>
 
   <!-- Meta footer con firma y distribución -->
-  <div class="hdr-meta" style="border-color:rgba(255,255,255,.08)">
+  <div class="hdr-meta">
     <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Lic. en Adm. · T50 F17 CPCECABA</div>
     <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Distribución 30 / 30 / 40</div>
     <div class="hdr-meta-item"><div class="hdr-meta-dot"></div>Art. 88 Inc. III LGS · Art. 80 LIG</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ALERT BANNER · Calendario crítico (días restantes)
+════════════════════════════════════════ -->
+<div class="alert-calendar">
+  <div class="alert-calendar-head">
+    <div>
+      <div class="alert-calendar-label">● Calendario crítico</div>
+      <div class="alert-calendar-title">¿Cuánto tiempo queda hasta cada vencimiento?</div>
+    </div>
+    <div class="alert-calendar-tag">Abr 2026 → Jul 2028</div>
+  </div>
+  <div class="alert-calendar-grid">
+    <div class="alert-kpi">
+      <div class="alert-kpi-label">Al cierre del balance</div>
+      <div class="alert-kpi-val" id="alertDiasCierre">—</div>
+      <div class="alert-kpi-sub"><span class="alert-kpi-date">31 jul 2026</span> · preparación</div>
+    </div>
+    <div class="alert-kpi critico">
+      <div class="alert-kpi-label">Al F.8006 ARCA</div>
+      <div class="alert-kpi-val" id="alertDiasArca">—</div>
+      <div class="alert-kpi-sub"><span class="alert-kpi-date">27 ene 2027</span> · no prorrogable</div>
+    </div>
+    <div class="alert-kpi">
+      <div class="alert-kpi-label">Al fin del resguardo</div>
+      <div class="alert-kpi-val" id="alertDiasFin">—</div>
+      <div class="alert-kpi-sub"><span class="alert-kpi-date">31 jul 2028</span> · continuidad</div>
+    </div>
   </div>
 </div>
 
@@ -817,44 +853,63 @@
 
 <div class="card mb28" style="padding:0;overflow:hidden">
 
-  <!-- ═══ BARRA SUPERIOR · CONTROLES (único punto de entrada) ═══ -->
-  <div style="background:var(--surface2);border-bottom:1px solid var(--border);padding:20px 24px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+  <!-- ═══ BARRA SUPERIOR · CONTROLES (rediseñada · 3 cards limpias) ═══ -->
+  <div style="background:var(--paper-2);border-bottom:0.5px solid var(--rule);padding:1.5rem 1.75rem">
 
-      <!-- Slider principal -->
-      <div style="flex:2;min-width:280px">
-        <div class="ctrl-label">Valor de Mercado Solares de Malabia (VNR)</div>
-        <div class="ctrl-row" style="margin-bottom:4px">
-          <input type="range" id="mvSlider" min="200000000" max="600000000" value="452044937" step="1" oninput="calcular()">
-          <span class="ctrl-val" id="mvDisplay">$452.044.937</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-          <button onclick="resetSlider()" style="font-size:10px;font-weight:700;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.25);border-radius:6px;padding:4px 10px;cursor:pointer;font-family:inherit;letter-spacing:.04em">&#8635; Valor técnico RT 54</button>
-          <span id="sbLabel" style="font-size:10px;font-weight:600;color:var(--text3)">Valor Técnico RT 54 — Sin variación</span>
-          <span id="sbVal" style="font-size:12px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums">$452.044.937</span>
-        </div>
-        <!-- status box oculto pero presente para que calcular() no rompa -->
-        <div id="statusBox" class="status-box neutral" style="display:none"></div>
+    <!-- Card 1 · Slider VNR (ancho completo arriba) -->
+    <div style="background:var(--paper);border:0.5px solid var(--rule);border-radius:6px;padding:1rem 1.25rem;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+        <div style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)">VNR · Valor Neto de Realización</div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.015em;line-height:1" id="mvDisplay">$452.044.937</div>
       </div>
+      <input type="range" id="mvSlider" min="200000000" max="600000000" value="452044937" step="1" oninput="calcular()" style="width:100%;margin:6px 0">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px">
+        <button onclick="resetSlider()" style="font-size:10px;font-weight:500;color:var(--orange);background:transparent;border:0.5px solid var(--orange);border-radius:3px;padding:4px 10px;cursor:pointer;font-family:inherit;letter-spacing:.08em;text-transform:uppercase;transition:all .15s" onmouseover="this.style.background='var(--orange)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--orange)'">&#8635; Valor técnico RT 54</button>
+        <span id="sbLabel" style="font-size:10px;font-weight:500;color:var(--ink-3);letter-spacing:.04em">Valor Técnico RT 54 — Sin variación</span>
+        <span id="sbVal" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:500;color:var(--ink-2);font-variant-numeric:tabular-nums">$452.044.937</span>
+      </div>
+      <div id="statusBox" class="status-box neutral" style="display:none"></div>
+    </div>
 
-      <!-- Parámetros de tasa unificados (una sola grilla compacta) -->
-      <div style="flex:3;min-width:300px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
-          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px">Deuda Pablo</div>
-          <div style="display:flex;gap:6px;align-items:center">
-            <input class="ctrl-input" type="number" id="tasaPablo" value="40" step="0.1" oninput="calcular()" style="padding:4px 6px;font-size:11px" title="Tasa anual % (BNA)">
-            <span style="font-size:10px;color:var(--text3)">% ·</span>
-            <input class="ctrl-input" type="number" id="perPablo" value="3" min="1" oninput="calcular()" style="padding:4px 6px;font-size:11px" title="Trimestres">
-            <span style="font-size:10px;color:var(--text3)">trim.</span>
+    <!-- Cards 2 y 3 · Parámetros de tasa (lado a lado) -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-left:3px solid var(--warning);border-radius:6px;padding:.85rem 1rem">
+        <div style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--warning);margin-bottom:8px">Deuda Pablo · actualización</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end">
+          <div>
+            <div style="font-size:9px;color:var(--ink-3);margin-bottom:3px;letter-spacing:.05em">Tasa anual BNA</div>
+            <div style="display:flex;align-items:baseline;gap:3px">
+              <input class="ctrl-input" type="number" id="tasaPablo" value="40" step="0.1" oninput="calcular()" style="width:52px">
+              <span style="font-size:11px;color:var(--ink-3);font-weight:500">%</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:9px;color:var(--ink-3);margin-bottom:3px;letter-spacing:.05em">Períodos</div>
+            <div style="display:flex;align-items:baseline;gap:4px">
+              <input class="ctrl-input" type="number" id="perPablo" value="3" min="1" oninput="calcular()" style="width:44px">
+              <span style="font-size:11px;color:var(--ink-3);font-weight:500">trim.</span>
+            </div>
           </div>
         </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
-          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px">Deuda Luis+Jose</div>
-          <div style="display:flex;gap:6px;align-items:center">
-            <input class="ctrl-input" type="number" id="tasaLuis" value="40" step="0.1" oninput="calcular()" style="padding:4px 6px;font-size:11px" title="Tasa anual % (BNA)">
-            <span style="font-size:10px;color:var(--text3)">% ·</span>
-            <input class="ctrl-input" type="number" id="perLuis" value="3" min="1" oninput="calcular()" style="padding:4px 6px;font-size:11px" title="Trimestres">
-            <span style="font-size:10px;color:var(--text3)">trim.</span>
+      </div>
+
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-left:3px solid var(--danger);border-radius:6px;padding:.85rem 1rem">
+        <div style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--danger);margin-bottom:8px">Deuda Luis + Jose · actualización</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end">
+          <div>
+            <div style="font-size:9px;color:var(--ink-3);margin-bottom:3px;letter-spacing:.05em">Tasa anual BNA</div>
+            <div style="display:flex;align-items:baseline;gap:3px">
+              <input class="ctrl-input" type="number" id="tasaLuis" value="40" step="0.1" oninput="calcular()" style="width:52px">
+              <span style="font-size:11px;color:var(--ink-3);font-weight:500">%</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:9px;color:var(--ink-3);margin-bottom:3px;letter-spacing:.05em">Períodos</div>
+            <div style="display:flex;align-items:baseline;gap:4px">
+              <input class="ctrl-input" type="number" id="perLuis" value="3" min="1" oninput="calcular()" style="width:44px">
+              <span style="font-size:11px;color:var(--ink-3);font-weight:500">trim.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -863,15 +918,15 @@
   </div>
 
   <!-- ═══ FLUJO 3 COLUMNAS · ENTRADA → IMPUTACIÓN → RESULTADO ═══ -->
-  <div style="padding:28px 24px;background:var(--surface)">
-    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:stretch">
+  <div style="padding:24px 20px;background:var(--surface);overflow-x:auto">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;min-width:680px">
 
       <!-- ═══════════════════ COLUMNA 1 · ENTRADA ═══════════════════ -->
-      <div style="background:var(--surface2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:20px 18px;display:flex;flex-direction:column">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:6px;padding:14px 14px;display:flex;flex-direction:column">
         <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:4px">Paso 1 · Origen</div>
         <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:14px">Valor de Mercado Solares de Malabia</div>
 
-        <div style="font-size:24px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-bottom:4px" id="col1-vnr">$452.044.937</div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:21px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-bottom:4px;line-height:1.1" id="col1-vnr">$452.044.937</div>
         <div style="font-size:10px;color:var(--text3);margin-bottom:auto;padding-bottom:16px">Crédito a imputar (VNR RT 54)</div>
 
         <div style="border-top:1px dashed var(--border);padding-top:12px;margin-top:12px">
@@ -891,7 +946,7 @@
       <div style="display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:22px;font-weight:300" class="flow-arrow">→</div>
 
       <!-- ═══════════════════ COLUMNA 2 · IMPUTACIÓN ═══════════════════ -->
-      <div style="background:var(--surface2);border:1px solid var(--border);border-left:4px solid var(--indigo);border-radius:10px;padding:20px 18px;display:flex;flex-direction:column">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:6px;padding:14px 14px;display:flex;flex-direction:column">
         <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--indigo);margin-bottom:4px">Paso 2 · Imputación</div>
         <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:14px">Cómo se salda el crédito</div>
 
@@ -923,11 +978,11 @@
       <div style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:22px;font-weight:300" class="flow-arrow">=</div>
 
       <!-- ═══════════════════ COLUMNA 3 · RESULTADO ═══════════════════ -->
-      <div style="background:rgba(0,195,137,.06);border:1px solid rgba(0,195,137,.3);border-left:4px solid var(--accent);border-radius:10px;padding:20px 18px;display:flex;flex-direction:column">
+      <div style="background:rgba(0,195,137,.06);border:1px solid rgba(0,195,137,.3);border-left:3px solid var(--success);border-radius:6px;padding:14px 14px;display:flex;flex-direction:column">
         <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);margin-bottom:4px">Paso 3 · Resultado</div>
         <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:14px">Total cubierto por la Dación</div>
 
-        <div style="font-size:24px;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-bottom:4px" id="col3-total">$452.044.937</div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:21px;font-weight:500;color:var(--success);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-bottom:4px;line-height:1.1" id="col3-total">$452.044.937</div>
         <div style="font-size:10px;color:var(--text3);margin-bottom:auto;padding-bottom:16px">① Luis + ② Pablo = VNR total</div>
 
         <!-- Verificación de identidad -->
@@ -1045,7 +1100,7 @@
     <div style="font-size:11.5px;color:var(--text2);text-align:center;margin-bottom:14px;font-style:italic;line-height:1.55">Si tomamos los <strong style="font-style:normal;color:var(--text)">inmuebles asignados a PAMA</strong> (Sección 2) y les sumamos el <strong style="font-style:normal;color:var(--text)">activo corriente de LIBER</strong> que recibe PAMA, <strong style="font-style:normal;color:var(--gold)">aparece un DELTA faltante</strong> para que PAMA alcance su cuota del 30%. Ese DELTA es el AJUSTE (activación de costos RT 17) que equilibra la ecuación.</div>
 
     <!-- Ecuación conceptual del DELTA -->
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 16px;font-family:ui-monospace,'SF Mono',monospace;font-size:12px;color:var(--text2);text-align:center;line-height:2;letter-spacing:.01em;overflow-x:auto;margin-bottom:10px">
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 16px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:var(--text2);text-align:center;line-height:2;letter-spacing:.01em;overflow-x:auto;margin-bottom:10px">
       <span style="display:inline-block;min-width:640px">
       <strong style="color:var(--text)">Inmuebles PAMA</strong>
       <span style="color:var(--accent);font-weight:700;margin:0 6px">+</span>
@@ -1058,7 +1113,7 @@
     </div>
 
     <!-- Ecuación numérica del DELTA (nacimiento del ajuste) -->
-    <div style="background:var(--navy);border-radius:10px;padding:14px 16px;font-family:ui-monospace,'SF Mono',monospace;font-size:13px;color:#ffffff;text-align:center;font-variant-numeric:tabular-nums;overflow-x:auto;margin-bottom:16px">
+    <div style="background:var(--navy);border-radius:10px;padding:14px 16px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#ffffff;text-align:center;font-variant-numeric:tabular-nums;overflow-x:auto;margin-bottom:16px">
       <span style="display:inline-block;min-width:640px">
       <span style="color:rgba(255,255,255,.85)">$23.625.636</span>
       <span style="color:var(--accent);margin:0 4px">+</span>
@@ -1074,7 +1129,7 @@
     <!-- Una vez encontrado el DELTA, se cierra la ecuación patrimonial total -->
     <div style="background:rgba(0,195,137,.05);border:1px solid rgba(0,195,137,.25);border-radius:10px;padding:14px 16px;text-align:center">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);margin-bottom:8px">&#10003; Con el pivote en su lugar, el balance 30/30/40 cierra</div>
-      <div style="font-family:ui-monospace,'SF Mono',monospace;font-size:12px;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.8;overflow-x:auto">
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.8;overflow-x:auto">
         <span style="display:inline-block;min-width:560px">
         <strong style="color:var(--text)">NAVONI</strong> <span style="color:rgba(0,0,0,.35)">$46.275.618</span>
         <span style="color:var(--accent);font-weight:700;margin:0 6px">+</span>
@@ -1092,24 +1147,113 @@
 
 </div>
 
-<!-- ─── Sección 4 (fusionado) · Gráfico de Distribución ─── -->
-<div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--accent2);margin:22px 0 10px">&#9632; Gráfico de Distribución 30/30/40 + Ajuste</div>
-<div class="card mb28">
-  <div class="bar-row">
-    <div class="bar-meta"><span class="bar-name">NAVONI BR SAU</span><span class="bar-pct">30% · $46.275.618</span></div>
-    <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+<!-- ─── Sección 5 · Gráfico del DELTA · Mecánica del Ajuste RT 17 ─── -->
+<div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin:2rem 0 .5rem">Mecánica del ajuste · ¿cómo se consigue el DELTA?</div>
+<div style="font-size:12px;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.55">El ajuste RT 17 actúa como pivote: sin él, PAMA recibe 23,7% del PN (menos de lo acordado); con el ajuste aplicado, alcanza exactamente el 30% objetivo. El DELTA de $12,4 M capitaliza mejoras sobre inmuebles y honorarios reorganizativos.</div>
+
+<div class="card mb20" style="padding:1.5rem">
+
+  <!-- Before/After del DELTA PAMA -->
+  <div style="display:grid;grid-template-columns:1fr 32px 1fr;gap:14px;align-items:stretch;margin-bottom:1.75rem">
+
+    <!-- ANTES · Sin ajuste -->
+    <div style="background:var(--danger-bg);border:0.5px solid var(--danger-border);border-radius:8px;padding:1rem 1.15rem">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.6rem;padding-bottom:.55rem;border-bottom:0.5px solid var(--danger-border)">
+        <span style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--danger);font-weight:500">⚠ Sin ajuste</span>
+        <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;color:var(--ink-3)">PAMA</span>
+      </div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;margin-bottom:.85rem;color:var(--ink)">Brecha patrimonial</div>
+
+      <!-- Stacked bar sin ajuste -->
+      <div style="display:flex;height:28px;background:var(--paper);border:0.5px solid var(--rule);border-radius:4px;overflow:hidden;margin-bottom:.5rem">
+        <div style="flex:23.6;background:var(--purple-dark);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;font-size:10px;font-weight:500">$23,6</div>
+        <div style="flex:10.2;background:var(--purple-mid);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;font-size:10px;font-weight:500">$10,2</div>
+        <div style="flex:12.4;background:repeating-linear-gradient(-45deg,var(--danger-border) 0 4px,var(--danger) 4px 5px);display:flex;align-items:center;justify-content:center;color:var(--danger);font-size:9px;font-weight:500;letter-spacing:.05em">FALTA</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-3);margin-bottom:.75rem">
+        <span>Inmuebles + AC = $33,8 M</span>
+        <span style="color:var(--danger);font-weight:500">23,7%</span>
+      </div>
+
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-radius:4px;padding:6px 10px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--danger);font-weight:500">% Real PAMA</span>
+        <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--danger)">23,7% · &lt; 30%</span>
+      </div>
+    </div>
+
+    <!-- Flecha central -->
+    <div style="display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;color:var(--orange);font-weight:400">→</div>
+
+    <!-- DESPUÉS · Con ajuste -->
+    <div style="background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:8px;padding:1rem 1.15rem">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.6rem;padding-bottom:.55rem;border-bottom:0.5px solid var(--success-border)">
+        <span style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--success);font-weight:500">✓ Con ajuste RT 17</span>
+        <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;color:var(--ink-3)">PAMA</span>
+      </div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;margin-bottom:.85rem;color:var(--ink)">Proporcionalidad verificada</div>
+
+      <!-- Stacked bar con ajuste -->
+      <div style="display:flex;height:28px;background:var(--paper);border:0.5px solid var(--rule);border-radius:4px;overflow:hidden;margin-bottom:.5rem">
+        <div style="flex:23.6;background:var(--purple-dark);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;font-size:10px;font-weight:500">$23,6</div>
+        <div style="flex:10.2;background:var(--purple-mid);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;font-size:10px;font-weight:500">$10,2</div>
+        <div style="flex:12.4;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;font-size:10px;font-weight:500;border-left:2px solid var(--paper)">Δ $12,4</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-3);margin-bottom:.75rem">
+        <span>Total PAMA = $46,3 M</span>
+        <span style="color:var(--success);font-weight:500">32,3%</span>
+      </div>
+
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-radius:4px;padding:6px 10px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--success);font-weight:500">% Real PAMA</span>
+        <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--success)">32,3% ≈ 30% ✓</span>
+      </div>
+    </div>
+
   </div>
-  <div class="bar-row">
-    <div class="bar-meta"><span class="bar-name">DES. VIFRAN SRL</span><span class="bar-pct">40% · $50.531.056</span></div>
-    <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+
+  <!-- Leyenda de componentes -->
+  <div style="display:flex;gap:18px;flex-wrap:wrap;padding:.75rem 1rem;background:var(--paper-2);border-radius:4px;border:0.5px solid var(--rule);margin-bottom:1.25rem">
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-2)"><span style="width:12px;height:12px;border-radius:2px;background:var(--purple-dark);display:inline-block"></span>Inmuebles PAMA <span style="color:var(--ink-3);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10.5px">$23,6M</span></div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-2)"><span style="width:12px;height:12px;border-radius:2px;background:var(--purple-mid);display:inline-block"></span>AC LIBER <span style="color:var(--ink-3);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10.5px">$10,2M</span></div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-2)"><span style="width:12px;height:12px;border-radius:2px;background:var(--orange);display:inline-block"></span>Ajuste RT 17 <span style="color:var(--ink-3);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10.5px">$12,4M</span></div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-2)"><span style="width:12px;height:12px;border-radius:2px;background:repeating-linear-gradient(-45deg,#F7C1C1 0 4px,#E24B4A 4px 5px);display:inline-block"></span>Brecha</div>
   </div>
-  <div class="bar-row">
-    <div class="bar-meta"><span class="bar-name">PAMA INVER. SRL</span><span class="bar-pct">30% · $46.275.618</span></div>
-    <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+
+  <!-- Ecuación del DELTA -->
+  <div style="background:var(--ink);border-radius:6px;padding:1rem 1.25rem;text-align:center">
+    <div style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:.6rem">Ecuación del DELTA</div>
+    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#fff;font-variant-numeric:tabular-nums;line-height:1.6">
+      <span style="color:rgba(255,255,255,.6)">$23.625.636</span>
+      <span style="color:rgba(255,255,255,.4);margin:0 .35rem">+</span>
+      <span style="color:rgba(255,255,255,.6)">$10.230.669</span>
+      <span style="color:rgba(255,255,255,.4);margin:0 .35rem">+</span>
+      <span style="color:var(--orange);font-weight:500">Δ $12.440.664</span>
+      <span style="color:rgba(255,255,255,.4);margin:0 .35rem">=</span>
+      <span style="color:#fff;font-weight:500">$46.296.969</span>
+    </div>
+    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.5);margin-top:.55rem;letter-spacing:.03em">Inmuebles + AC + Ajuste RT 17  =  PAMA (30% del PN Total $143.082.292)</div>
   </div>
-  <div class="bar-row" style="margin-bottom:0">
-    <div class="bar-meta"><span class="bar-name" style="color:var(--gold)">Ajuste probable (RT 17)</span><span class="bar-pct" style="color:var(--gold)">$12.440.664</span></div>
-    <div class="bar-track"><div class="bar-fill gold" style="width:8.7%"></div></div>
+</div>
+
+<!-- ─── Sección 5 · Distribución final 30/30/40 ─── -->
+<div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin:2rem 0 .5rem">Distribución final · 30/30/40 verificado</div>
+<div style="font-size:12px;color:var(--ink-3);margin-bottom:1rem;line-height:1.55">Resultado post-ajuste: cada continuadora recibe exactamente su participación acordada.</div>
+
+<div class="card mb28" style="padding:1.25rem 1.5rem">
+  <div class="bar-row">
+    <div class="bar-meta" style="margin-bottom:4px"><span class="bar-name" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)">NAVONI BR SAU</span><span class="bar-pct" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;color:var(--success)">30,0% · $42.924.688</span></div>
+    <div class="bar-track" style="height:14px;background:var(--paper-2);border-radius:3px;overflow:hidden;border:0.5px solid var(--rule)"><div class="bar-fill" style="width:30%;background:var(--success);height:100%;border-radius:3px"></div></div>
+  </div>
+  <div class="bar-row" style="margin-top:12px">
+    <div class="bar-meta" style="margin-bottom:4px"><span class="bar-name" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)">DES. VIFRAN SRL</span><span class="bar-pct" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;color:var(--success)">40,0% · $57.232.917</span></div>
+    <div class="bar-track" style="height:14px;background:var(--paper-2);border-radius:3px;overflow:hidden;border:0.5px solid var(--rule)"><div class="bar-fill" style="width:40%;background:var(--success);height:100%;border-radius:3px"></div></div>
+  </div>
+  <div class="bar-row" style="margin-top:12px;margin-bottom:0">
+    <div class="bar-meta" style="margin-bottom:4px"><span class="bar-name" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)">PAMA INVER. SRL <span style="color:var(--orange);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;margin-left:6px">con Δ RT 17</span></span><span class="bar-pct" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;color:var(--success)">30,0% · $42.924.687</span></div>
+    <div class="bar-track" style="height:14px;background:var(--paper-2);border-radius:3px;overflow:hidden;border:0.5px solid var(--rule);display:flex">
+      <div class="bar-fill" style="width:21.3%;background:var(--success);height:100%"></div>
+      <div class="bar-fill" style="width:8.7%;background:var(--orange);height:100%;border-left:1px solid var(--paper)"></div>
+    </div>
   </div>
 </div>
 
@@ -1158,83 +1302,94 @@
 <div style="margin-top:20px">
 <div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--accent2);margin:22px 0 10px">&#9632; Mapa de Ruta Procesal · Art. 88 Inc. III · Cierre 31/07/2026</div>
 
-<div class="card mb20" style="border-left:5px solid var(--gold);border-radius:0 12px 12px 12px;padding-left:28px">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px">
+<div class="card mb20" style="border-left:3px solid var(--orange);border-radius:0 6px 6px 0;padding-left:1.75rem">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:1.25rem">
     <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-        <span style="display:inline-block;width:4px;height:18px;background:var(--gold);border-radius:3px;flex-shrink:0"></span>
-        <span style="font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.01em">Balance Proyectado al 31/07/2026 — Antes y Después de la Dación</span>
-      </div>
-      <div style="font-size:12px;color:var(--text2);padding-left:14px">La dación en pago elimina el crédito Solares de Malabia del activo y cancela el pasivo corriente. LIBER se escinde sin el crédito y sin deudas heredadas — mínima exposición patrimonial.</div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:5px">Balance Proyectado al 31/07/2026</div>
+      <div style="font-size:12px;color:var(--ink-3);line-height:1.55">Mecánica de extinción simultánea: el crédito Solares de Malabia se extingue por dación en pago, cancelando los dos pasivos; los activos inmobiliarios se distribuyen 30/30/40 a las continuadoras. <strong style="color:var(--ink);font-weight:500">LIBER residual = $0</strong> (Art. 88 Inc. III).</div>
     </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
       <span class="kpi-badge badge-gold">ART. 88 INC. III &#10003;</span>
-      <span class="kpi-badge badge-green">DACIÓN REORGANIZATIVA &#10003;</span>
-      <span class="kpi-badge badge-indigo">PASIVO NETO = $0 &#10003;</span>
+      <span class="kpi-badge badge-green">DACIÓN &#10003;</span>
+      <span class="kpi-badge badge-indigo">LIBER = $0 &#10003;</span>
     </div>
   </div>
 
-  <div style="overflow-x:auto;margin-bottom:16px">
-    <table style="width:100%;border-collapse:separate;border-spacing:0;font-size:12px">
+  <div style="overflow-x:auto;margin-bottom:1rem">
+    <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:560px">
       <thead>
         <tr>
-          <th style="padding:9px 12px;text-align:left;background:var(--surface2);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);border-bottom:2px solid var(--surface3)">Rubro</th>
-          <th style="padding:9px 12px;text-align:right;background:var(--surface2);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);border-bottom:2px solid var(--surface3)">LIBER Previo</th>
-          <th style="padding:9px 12px;text-align:right;background:rgba(201,168,76,.07);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:2px solid rgba(201,168,76,.2)">Operación Dación</th>
-          <th style="padding:9px 12px;text-align:right;background:rgba(0,195,137,.05);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);border-bottom:2px solid rgba(0,195,137,.18)">LIBER Proyectado 31/07/2026</th>
+          <th style="padding:10px 12px;text-align:left;background:var(--paper-2);font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-bottom:1.5px solid var(--ink)">Rubro</th>
+          <th style="padding:10px 12px;text-align:right;background:var(--paper-2);font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-bottom:1.5px solid var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">LIBER 30/11/2025</th>
+          <th style="padding:10px 12px;text-align:right;background:var(--warning-bg);font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--warning);border-bottom:1.5px solid var(--warning);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Operación Dación</th>
+          <th style="padding:10px 12px;text-align:right;background:var(--success-bg);font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--success);border-bottom:1.5px solid var(--success);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">LIBER 31/07/2026</th>
         </tr>
       </thead>
       <tbody>
+
+        <tr style="background:var(--paper-2)"><td colspan="4" style="padding:8px 12px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500">Activos</td></tr>
+
         <tr>
-          <td style="padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text2)">Activo Corriente (sin Solares de Malabia)</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums;color:var(--text2)">$10.230.669</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.03);color:var(--text3)">—</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.03);font-variant-numeric:tabular-nums;color:var(--text2)">$10.230.669</td>
-        </tr>
-        <tr style="background:rgba(229,62,62,.02)">
-          <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-weight:600;color:var(--text)">Crédito Solares de Malabia</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);font-weight:600;font-variant-numeric:tabular-nums;color:var(--text)">$452.044.937</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.05);font-weight:700;color:var(--danger)">− $452.044.937</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.03);font-weight:700;color:var(--accent2)">$0 · Eliminado</td>
+          <td style="padding:10px 12px;border-bottom:0.5px solid var(--rule);color:var(--ink-2)">Activo Corriente (sin Solares de Malabia)</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink-2)">$10.230.669</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);color:var(--ink-3)">—</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--orange);font-weight:500">Distribuye 30/30/40</td>
         </tr>
         <tr>
-          <td style="padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text2)">Inversiones + Bienes de Uso</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums;color:var(--text2)">$574.611.138</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.03);color:var(--text3)">—</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.03);font-variant-numeric:tabular-nums;color:var(--text2)">$574.611.138</td>
-        </tr>
-        <tr style="background:var(--surface3)">
-          <td style="padding:11px 12px;border-bottom:1px solid var(--border);font-weight:700;color:var(--text)">TOTAL ACTIVO</td>
-          <td style="padding:11px 12px;text-align:right;border-bottom:1px solid var(--border);font-weight:700;font-variant-numeric:tabular-nums;color:var(--text)">$1.036.886.744</td>
-          <td style="padding:11px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.07);font-weight:700;color:var(--gold)">− $452.044.937</td>
-          <td style="padding:11px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.06);font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent2)">$584.841.807</td>
-        </tr>
-        <tr><td colspan="4" style="padding:4px 0;background:var(--surface2)"></td></tr>
-        <tr style="background:rgba(229,62,62,.02)">
-          <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-weight:600;color:var(--text)">Pasivo Corriente (deuda Luis+Jose)</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);font-weight:600;font-variant-numeric:tabular-nums;color:var(--text)">$72.918.193</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.05);font-weight:700;color:var(--danger)">− $72.918.193</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.03);font-weight:700;color:var(--accent2)">$0 · Cancelado</td>
+          <td style="padding:10px 12px;border-bottom:0.5px solid var(--rule);color:var(--ink);font-weight:500">Crédito Solares de Malabia</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)">$452.044.937</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);background:var(--warning-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--danger)">−$452.044.937</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);background:var(--success-bg);color:var(--success);font-weight:500">$0 · Extinguido</td>
         </tr>
         <tr>
-          <td style="padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text2)">Nueva Deuda Pablo (cancelada por dación)</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text3)">—</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.03);font-weight:700;color:var(--danger)" id="proy-pablo">− $379.126.744</td>
-          <td style="padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.03);font-weight:700;color:var(--accent2)">$0 · Cancelada contra Solares de Malabia</td>
+          <td style="padding:10px 12px;border-bottom:0.5px solid var(--rule);color:var(--ink-2)">Inmuebles + Bienes de Uso</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink-2)">$574.611.138</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);color:var(--ink-3)">—</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--orange);font-weight:500">Distribuye 30/30/40</td>
         </tr>
-        <tr style="background:var(--surface3)">
-          <td style="padding:11px 12px;border-bottom:1px solid var(--border);font-weight:700;color:var(--text)">TOTAL PASIVO (en LIBER)</td>
-          <td style="padding:11px 12px;text-align:right;border-bottom:1px solid var(--border);font-weight:700;font-variant-numeric:tabular-nums;color:var(--text)">$72.918.193</td>
-          <td style="padding:11px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(201,168,76,.07);font-weight:700;color:var(--gold)">− $72.918.193</td>
-          <td style="padding:11px 12px;text-align:right;border-bottom:1px solid var(--border);background:rgba(0,195,137,.06);font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent2)">$0</td>
+        <tr style="background:var(--paper-2)">
+          <td style="padding:11px 12px;border-bottom:1.5px solid var(--ink);color:var(--ink);font-weight:500">TOTAL ACTIVO</td>
+          <td style="padding:11px 12px;text-align:right;border-bottom:1.5px solid var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)">$1.036.886.744</td>
+          <td style="padding:11px 12px;text-align:right;border-bottom:1.5px solid var(--ink);background:var(--warning-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--warning)">−$452.044.937</td>
+          <td style="padding:11px 12px;text-align:right;border-bottom:1.5px solid var(--ink);background:var(--success-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:500;color:var(--success)">$584.841.807</td>
         </tr>
-        <tr><td colspan="4" style="padding:4px 0;background:var(--surface2)"></td></tr>
-        <tr class="row-dark">
-          <td style="padding:13px 12px;font-size:10px;letter-spacing:.07em;text-transform:uppercase">PATRIMONIO NETO LIBER (a distribuir)</td>
-          <td style="padding:13px 12px;text-align:right;font-variant-numeric:tabular-nums">$511.923.614</td>
-          <td style="padding:13px 12px;text-align:right;color:var(--accent)">Sin variación</td>
-          <td style="padding:13px 12px;text-align:right;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:800">$511.923.614</td>
+
+        <tr style="background:var(--paper-2)"><td colspan="4" style="padding:8px 12px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding-top:14px">Pasivos</td></tr>
+
+        <tr>
+          <td style="padding:10px 12px;border-bottom:0.5px solid var(--rule);color:var(--ink);font-weight:500">Deuda Luis + Jose</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)">$72.918.193</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);background:var(--warning-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--danger)">−$72.918.193</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);background:var(--success-bg);color:var(--success);font-weight:500">$0 · Cancelado</td>
         </tr>
+        <tr>
+          <td style="padding:10px 12px;border-bottom:0.5px solid var(--rule);color:var(--ink-2)">Deuda Pablo (remanente dación)</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);color:var(--ink-3)">—</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);background:var(--warning-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--danger)" id="proy-pablo">−$379.126.744</td>
+          <td style="padding:10px 12px;text-align:right;border-bottom:0.5px solid var(--rule);background:var(--success-bg);color:var(--success);font-weight:500">$0 · Cancelado</td>
+        </tr>
+        <tr style="background:var(--paper-2)">
+          <td style="padding:11px 12px;border-bottom:1.5px solid var(--ink);color:var(--ink);font-weight:500">TOTAL PASIVO</td>
+          <td style="padding:11px 12px;text-align:right;border-bottom:1.5px solid var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)">$72.918.193</td>
+          <td style="padding:11px 12px;text-align:right;border-bottom:1.5px solid var(--ink);background:var(--warning-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--warning)">−$452.044.937</td>
+          <td style="padding:11px 12px;text-align:right;border-bottom:1.5px solid var(--ink);background:var(--success-bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:600;color:var(--success)">$0</td>
+        </tr>
+
+        <tr><td colspan="4" style="padding:8px 0"></td></tr>
+
+        <tr style="background:var(--paper-2)">
+          <td style="padding:13px 12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink);border-top:2px solid var(--ink);border-bottom:0.5px solid var(--rule)">PN a distribuir · 30/30/40</td>
+          <td style="padding:13px 12px;text-align:right;color:var(--ink-3);border-top:2px solid var(--ink);border-bottom:0.5px solid var(--rule);font-size:11px">Activo − Pasivo sincerado</td>
+          <td style="padding:13px 12px;text-align:right;color:var(--orange);font-weight:500;border-top:2px solid var(--ink);border-bottom:0.5px solid var(--rule);font-size:11px">NAVONI 30% · VIFRAN 40% · PAMA 30%</td>
+          <td style="padding:13px 12px;text-align:right;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500;border-top:2px solid var(--ink);border-bottom:0.5px solid var(--rule);font-size:17px">$143.082.292</td>
+        </tr>
+        <tr style="background:var(--success-bg)">
+          <td style="padding:14px 12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--success);border-bottom:1.5px solid var(--success)">PN Residual en LIBER</td>
+          <td style="padding:14px 12px;text-align:right;color:var(--ink-3);border-bottom:1.5px solid var(--success)">—</td>
+          <td style="padding:14px 12px;text-align:right;color:var(--success);font-weight:500;border-bottom:1.5px solid var(--success);font-size:11px">Disolución sin liquidación</td>
+          <td style="padding:14px 12px;text-align:right;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--success);font-weight:600;font-size:18px;border-bottom:1.5px solid var(--success)">$0 &#10003;</td>
+        </tr>
+
       </tbody>
     </table>
   </div>
@@ -1710,78 +1865,70 @@ Se da pleno cumplimiento al requisito de continuidad de atributos fiscales del A
 
   </div>
 
-  <!-- ─── BLOQUE 3 · VALIDACIONES (cards en fondo claro) ─── -->
-  <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent2);margin-bottom:14px">&#10003; Validaciones normativas</div>
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:32px">
-
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:12px">Art. 80 LIG</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Continuidad de actividad</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>+80% participación conservada</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Traslado de atributos fiscales</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dación en pago reorganizativa</div>
+  <!-- ─── BLOQUE 3 · VALIDACIONES (lenguaje CEO sobrio) ─── -->
+  <div style="margin-bottom:2.5rem">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.25rem;flex-wrap:wrap;gap:8px">
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:500;color:var(--ink);letter-spacing:-.01em">Validaciones normativas</div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--success);font-weight:500">11/11 condiciones verificadas ✓</div>
     </div>
 
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:12px">RT 54 · Activación de Gastos</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Costos financieros capitalizables</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>I+D viable activado</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Grandes reparaciones activadas</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);padding:4px 0"><div style="width:15px;height:15px;border-radius:50%;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 8 8" width="8" height="8" fill="none"><path d="M1.5 4.5L3 6L6.5 2" stroke="#00a372" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Intangibles controlados</div>
-    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
 
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin-bottom:12px">Estado Final del Proyecto</div>
-      <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text2);padding:8px 0;border-bottom:1px solid var(--border)"><span>LIBER Posterior</span><span style="font-weight:700;color:var(--text);font-variant-numeric:tabular-nums">$0</span></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text2);padding:8px 0;border-bottom:1px solid var(--border)"><span>Check 30/30/40</span><span style="font-weight:700;color:var(--accent2)">COMPLETO &#10003;</span></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text2);padding:8px 0"><span>Dación Solares de Malabia 50/50</span><span style="font-weight:700;color:var(--accent2)">VALIDADO &#10003;</span></div>
-      <div style="margin-top:8px"><div style="display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--accent2);background:rgba(0,195,137,.08);border:1px solid rgba(0,195,137,.25);border-radius:5px;padding:3px 9px"><div style="width:5px;height:5px;border-radius:50%;background:var(--accent2)"></div>Proyecto verificado · 17 abr 2026</div></div>
-    </div>
+      <!-- Card 1 · Art. 80 LIG -->
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-top:3px solid var(--success);border-radius:6px;padding:1rem 1.15rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:0.5px solid var(--rule)">
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)">Art. 80 LIG</div>
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--success);font-weight:500">4/4</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>Continuidad de actividad</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>+80% participación conservada</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>Traslado de atributos fiscales</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>Dación en pago reorganizativa</div>
+      </div>
 
+      <!-- Card 2 · RT 54 · Activación de Gastos -->
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-top:3px solid var(--success);border-radius:6px;padding:1rem 1.15rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:0.5px solid var(--rule)">
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)">RT 54 · Activación</div>
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--success);font-weight:500">4/4</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>Costos financieros capitalizables</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>I+D viable activado</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>Grandes reparaciones activadas</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-2);padding:4px 0"><span style="color:var(--success);font-weight:500;width:11px;display:inline-block;flex-shrink:0">✓</span>Intangibles controlados</div>
+      </div>
+
+      <!-- Card 3 · Estado Final -->
+      <div style="background:var(--paper);border:0.5px solid var(--rule);border-top:3px solid var(--orange);border-radius:6px;padding:1rem 1.15rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:0.5px solid var(--rule)">
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;color:var(--ink)">Estado Final</div>
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);font-weight:500">3/3</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-2);padding:6px 0;border-bottom:0.5px dashed var(--rule)"><span>LIBER Posterior</span><span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--success)">$0</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-2);padding:6px 0;border-bottom:0.5px dashed var(--rule)"><span>Check 30/30/40</span><span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--success);font-size:10px;letter-spacing:.05em">COMPLETO ✓</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-2);padding:6px 0"><span>Dación 50/50</span><span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;color:var(--success);font-size:10px;letter-spacing:.05em">VALIDADO ✓</span></div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- ─── BLOQUE 4 · FIRMA DE CIERRE (fondo negro, solemne) ─── -->
-  <div style="background:#0a0a0a;border-radius:12px;padding:32px 34px;position:relative;overflow:hidden">
-    <!-- Decoración de fondo -->
-    <div style="position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:rgba(0,195,137,.04)"></div>
-    <div style="position:absolute;bottom:-80px;left:-80px;width:200px;height:200px;border-radius:50%;background:rgba(201,168,76,.03)"></div>
+  <!-- ─── BLOQUE 4 · CIERRE MINIMAL · SOLO RESUMEN ─── -->
+  <div style="margin-top:3rem;padding:3rem 0 2rem;border-top:2px solid var(--ink);text-align:center">
 
-    <div style="position:relative;z-index:1">
+    <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.25em;color:var(--orange);margin-bottom:1.25rem">Cierre del Dictamen</div>
 
-      <!-- Título superior del cierre -->
-      <div style="text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.28em;color:var(--accent);margin-bottom:10px">&#9733; Cierre del Dictamen</div>
-        <div style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:-.02em;margin-bottom:6px">Dictamen Finalizado · Proyectado</div>
-        <div style="font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.55;max-width:560px;margin:0 auto">Reorganización libre de impuestos bajo el régimen del Art. 80 LIG, con blindaje normativo verificado y cronograma operativo accionable hasta julio 2028.</div>
-      </div>
+    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:400;color:var(--ink);letter-spacing:-.015em;margin-bottom:1.25rem;line-height:1.25">Dictamen Proyectado</div>
 
-      <!-- Tres badges de validación centradas -->
-      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:26px">
-        <span style="background:rgba(79,70,229,.18);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;color:#a5b4fc;letter-spacing:.08em;text-transform:uppercase">Proporcionalidad &#10003;</span>
-        <span style="background:rgba(79,70,229,.18);border:1px solid rgba(79,70,229,.4);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;color:#a5b4fc;letter-spacing:.08em;text-transform:uppercase">Continuidad &#10003;</span>
-        <span style="background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.4);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase">RT 54 &#10003;</span>
-      </div>
+    <div style="font-size:12.5px;color:var(--ink-3);line-height:1.7;max-width:520px;margin:0 auto 2rem">Reorganización libre de impuestos bajo el Art. 80 LIG, con blindaje normativo verificado y cronograma operativo hasta julio 2028.</div>
 
-      <!-- Firma centralizada -->
-      <div style="text-align:center;margin-bottom:24px;padding:20px 24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;max-width:440px;margin-left:auto;margin-right:auto">
-        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:12px">Firmado por</div>
-        <div style="font-size:17px;font-weight:800;color:#ffffff;letter-spacing:.02em;margin-bottom:6px;font-family:Georgia,serif">LIC. PABLO ÁGUILA</div>
-        <div style="width:50px;height:1px;background:var(--accent);margin:10px auto"></div>
-        <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.8;font-family:monospace">
-          T50 F17 · CPCECABA<br>
-          Administración de Empresas
-        </div>
-      </div>
-
-      <!-- Pie de referencia normativa -->
-      <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:18px;text-align:center">
-        <div style="font-size:9.5px;color:rgba(255,255,255,.35);line-height:1.8;font-family:monospace;letter-spacing:.03em">
-          <strong style="color:rgba(255,255,255,.55);font-weight:600">Ref. normativa:</strong> RT 54 · RT 17 · RT 36 · RT 26 · RT 16 · Art. 80 LIG · Art. 88 Inc. III LGS<br>
-          Síntesis ejecutiva actualizada en tiempo real · 17 de Abril de 2026
-        </div>
-      </div>
-
+    <div style="display:inline-flex;gap:1.5rem;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;color:var(--ink-2);letter-spacing:.05em;flex-wrap:wrap;justify-content:center">
+      <span>Proporcionalidad &#10003;</span>
+      <span style="color:var(--rule-2)">·</span>
+      <span>Continuidad &#10003;</span>
+      <span style="color:var(--rule-2)">·</span>
+      <span>RT 54 &#10003;</span>
     </div>
+
   </div>
 
 </div>
@@ -1964,13 +2111,29 @@ Se da pleno cumplimiento al requisito de continuidad de atributos fiscales del A
   window.addEventListener('load', () => {
     document.getElementById('mvSlider').value = VH;
     calcular();
-    const venc = new Date('2027-01-27');
+
+    // Calcular días restantes a cada hito crítico
     const hoyF = new Date();
-    const diasR = Math.ceil((venc - hoyF) / (1000 * 60 * 60 * 24));
+    const calcDias = (fechaStr) => Math.max(0, Math.ceil((new Date(fechaStr) - hoyF) / (1000 * 60 * 60 * 24)));
+
+    const diasCierre = calcDias('2026-07-31');
+    const diasArca = calcDias('2027-01-27');
+    const diasFin = calcDias('2028-07-31');
+
+    // Alert banner (header)
+    const setAlert = (id, dias) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = dias + ' días';
+    };
+    setAlert('alertDiasCierre', diasCierre);
+    setAlert('alertDiasArca', diasArca);
+    setAlert('alertDiasFin', diasFin);
+
+    // Mantener el diasRestantes existente (Sección 7)
     const elD = document.getElementById('diasRestantes');
     if (elD) {
-      elD.textContent = diasR > 0 ? diasR : '0';
-      elD.style.color = diasR <= 60 ? '#e53e3e' : diasR <= 120 ? '#c9a84c' : '#e53e3e';
+      elD.textContent = diasArca > 0 ? diasArca : '0';
+      elD.style.color = diasArca <= 60 ? '#e53e3e' : diasArca <= 120 ? '#c9a84c' : '#e53e3e';
     }
     initChecklist();
   });
